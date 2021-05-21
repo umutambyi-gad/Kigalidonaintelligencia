@@ -1,0 +1,551 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Start: Slider Section -->
+<div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
+    <!-- Carousel slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <figure>
+                <img alt="Home Slide" src="{% static 'images/header-slider/home-v2/header-slide.jpg' %}" />
+            </figure>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Online Learning Anytime, Anywhere!</h3>
+                    <h2>Discover Your Roots</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
+                    <div class="slide-buttons hidden-sm hidden-xs">    
+                        <a href="#" class="btn btn-primary">Read More</a>
+                        <a href="#" class="btn btn-default">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <figure>
+                <img alt="Home Slide" src="{% static 'images/header-slider/home-v2/header-slide.jpg' %}" />
+            </figure>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Online Learning Anytime, Anywhere!</h3>
+                    <h2>Discover Your Roots</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
+                    <div class="slide-buttons hidden-sm hidden-xs">    
+                        <a href="#" class="btn btn-primary">Read More</a>
+                        <a href="#" class="btn btn-default">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <figure>
+                <img alt="Home Slide" src="{% static 'images/header-slider/home-v2/header-slide.jpg' %}" />
+            </figure>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Online Learning Anytime, Anywhere!</h3>
+                    <h2>Discover Your Roots</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
+                    <div class="slide-buttons hidden-sm hidden-xs">    
+                        <a href="#" class="btn btn-primary">Read More</a>
+                        <a href="#" class="btn btn-default">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#home-v1-header-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#home-v1-header-carousel" data-slide-to="1"></li>
+        <li data-target="#home-v1-header-carousel" data-slide-to="2"></li>
+    </ol>
+</div>
+<!-- End: Slider Section -->
+
+<!-- Start: Search Section -->
+<section class="search-filters">
+    <div class="container">
+        <div class="filter-box">
+            <h3>What are you looking for at the library?</h3>
+            <form action="http://libraria.demo.presstigers.com/index.html" method="get">
+                <div class="col-md-4 col-sm-5">
+                    <div class="form-group">
+                        <label class="sr-only" for="keywords">Search by Keyword</label>
+                        <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5">
+                    <div class="form-group">
+                        <select name="category" id="category" class="form-control">
+                            <option>All Categories</option>
+                            <option>Category 01</option>
+                            <option>Category 02</option>
+                            <option>Category 03</option>
+                            <option>Category 04</option>
+                            <option>Category 05</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-5">
+                    <div class="form-group">
+                        <input class="form-control" type="submit" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- End: Search Section -->
+
+<!-- Start: Welcome Section -->
+<section class="welcome-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="welcome-wrap">
+                    <div class="welcome-text">
+                        <h2 class="section-title">Welcome to the libraria</h2>
+                        <span class="underline left"></span>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humor, or non-characteristic words etc.</p>
+                        <a class="btn btn-primary" href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="welcome-image">
+                    <img src="{% static 'images/wellcome-image.jpg' %}" class="algin-right" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End: Welcome Section -->
+
+<!-- Start: Category Filter -->
+<section class="category-filter section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="center-content">
+                <h2 class="section-title">Check Out The New Releases</h2>
+                <span class="underline center"></span>
+                <p class="lead">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+            </div>
+            <div class="filter-buttons">
+                <div class="filter btn" data-filter="all">All Releases</div>
+                <div class="filter btn" data-filter=".adults">Adults</div>
+                <div class="filter btn" data-filter=".kids-teens">Kids &amp; Teens</div>
+                <div class="filter btn" data-filter=".video">Video</div>
+                <div class="filter btn" data-filter=".audio">Audio</div>
+                <div class="filter btn" data-filter=".books">Books</div>
+                <div class="filter btn" data-filter=".magazines">Magazines</div>
+            </div>
+            <div id="category-filter">
+                <ul class="category-list">
+                    <li class="category-item adults">
+                        <figure>
+                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-01.jpg' %}" alt="New Releaase" />
+                            <figcaption class="bg-yellow">
+                                <div class="diamond">
+                                    <i class="book"></i>
+                                </div>
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item kids-teens">
+                        <figure>
+                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-02.jpg' %}" alt="New Releaase" />
+                            <figcaption class="bg-yellow">
+                                <div class="diamond">
+                                    <i class="book"></i>
+                                </div>
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item video">
+                        <figure>
+                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-03.jpg' %}" alt="New Releaase" />
+                            <figcaption class="bg-blue">
+                                <div class="diamond">
+                                    <i class="book"></i>
+                                </div>
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item audio">
+                        <figure>
+                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-04.jpg' %}" alt="New Releaase" />
+                            <figcaption class="bg-blue">
+                                <div class="diamond">
+                                    <i class="book"></i>
+                                </div>
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item books">
+                        <figure>
+                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-05.jpg' %}" alt="New Releaase" />
+                            <figcaption class="bg-green">
+                                <div class="diamond">
+                                    <i class="book"></i>
+                                </div>
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item magazines">
+                        <figure>
+                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-06.jpg' %}" alt="New Releaase" />
+                            <figcaption class="bg-red">
+                                <div class="diamond">
+                                    <i class="book"></i>
+                                </div>
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item adults">
+                        <figure>
+                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-07.jpg' %}" alt="New Releaase" />
+                            <figcaption class="bg-red">
+                                <div class="diamond">
+                                    <i class="book"></i>
+                                </div>
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item kids-teens">
+                        <figure>
+                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-08.jpg' %}" alt="New Releaase" />
+                            <figcaption class="bg-light-green">
+                                <div class="diamond">
+                                    <i class="book"></i>
+                                </div>
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Start: Category Filter -->
+
+<!-- Start: Latest Blog -->
+<section class="latest-blog section-padding">
+    <div class="container">
+        <div class="center-content">
+            <h2 class="section-title">Latest from Blog</h2>
+            <span class="underline center"></span>
+            <p class="lead">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+        </div>
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="blog-main-list">
+                        <div class="container">
+                            <div class="row">
+                                <div class="blog-page grid" style="position: relative; height: 3122.16px;">
+                                    <article>
+                                        <div class="grid-item blog-item" style="position: absolute; left: 50%; top: 2532px;">
+                                            <div class="post-thumbnail">
+                                                <div class="post-date-box">
+                                                    <div class="post-date">
+                                                        <a class="date" href="#.">07</a>
+                                                    </div>
+                                                    <div class="post-date-month">
+                                                        <a class="month" href="#.">Mar</a>
+                                                    </div>
+                                                </div>
+                                                <a href="blog-detail.html"><img alt="blog" src="{% static 'images/blog/blog-09.jpg' %}"></a>
+                                                <div class="post-share">
+                                                    <a href="#."><i class="fa fa-comment"></i> 37</a>
+                                                    <a href="#."><i class="fa fa-eye"></i> 180</a>
+                                                    <a href="#."><i class="fa fa-share-alt"></i> Share</a>
+                                                </div>
+                                            </div>
+                                            <div class="post-detail">
+                                                <header class="entry-header">
+                                                    <div class="blog_meta_category">
+                                                        <span class="arrow-right"></span>
+                                                        <a href="#." rel="category tag">Design</a>, 
+                                                        <a href="#." rel="category tag">art</a>
+                                                    </div>
+                                                    <h3 class="entry-title"><a href="blog-detail.html">Here each week my friends</a></h3>
+                                                    <div class="entry-meta">
+                                                        <span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
+                                                        <span><i class="fa fa-comment"></i> <a href="#">15 Comments</a></span>
+                                                    </div>
+                                                </header>
+                                                <div class="entry-content">
+                                                    <p>Curabitur sagittis fermentum ante at imperdiet. Proin viverra arcu ac quam finibus, efficitur rutrum turpis auctor. Maecenas at mi vitae lacus tempus egestas nec eget eros. Nunc eget est tellus. Quisque quis mattis eros, sit amet facilisis felis. Aliquam molestie purus venenatis lorem laoreet venenatis.....</p>
+                                                </div>
+                                                <footer class="entry-footer">
+                                                    <a class="btn btn-default" href="blog-detail.html">Read More</a>
+                                                </footer>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article>
+                                        <div class="grid-item blog-item" style="position: absolute; left: 0%; top: 2031px;">
+                                            <div class="post-thumbnail">
+                                                <div class="post-date-box">
+                                                    <div class="post-date">
+                                                        <a class="date" href="#.">07</a>
+                                                    </div>
+                                                    <div class="post-date-month">
+                                                        <a class="month" href="#.">Mar</a>
+                                                    </div>
+                                                </div>
+                                                <a href="blog-detail.html"><img alt="blog" src="{% static 'images/blog/blog-08.jpg' %}"></a>
+                                                <div class="post-share">
+                                                    <a href="#."><i class="fa fa-comment"></i> 37</a>
+                                                    <a href="#."><i class="fa fa-eye"></i> 180</a>
+                                                    <a href="#."><i class="fa fa-share-alt"></i> Share</a>
+                                                </div>
+                                            </div>
+                                            <div class="post-detail">
+                                                <header class="entry-header">
+                                                    <div class="blog_meta_category">
+                                                        <span class="arrow-right"></span>
+                                                        <a href="#." rel="category tag">Design</a>, 
+                                                        <a href="#." rel="category tag">art</a>
+                                                    </div>
+                                                    <h3 class="entry-title"><a href="blog-detail.html">Here each week my friends</a></h3>
+                                                    <div class="entry-meta">
+                                                        <span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
+                                                        <span><i class="fa fa-comment"></i> <a href="#">15 Comments</a></span>
+                                                    </div>
+                                                </header>
+                                                <div class="entry-content">
+                                                    <p>Curabitur sagittis fermentum ante at imperdiet. Proin viverra arcu ac quam finibus, efficitur rutrum turpis auctor. Maecenas at mi vitae lacus tempus egestas nec eget eros. Nunc eget est tellus. Quisque quis mattis eros, sit amet facilisis felis. Aliquam molestie purus venenatis lorem laoreet venenatis.....</p>
+                                                </div>
+                                                <footer class="entry-footer">
+                                                    <a class="btn btn-default" href="blog-detail.html">Read More</a>
+                                                </footer>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article>
+                                        <div class="grid-item blog-item" style="position: absolute; left: 50%; top: 2532px;">
+                                            <div class="post-thumbnail">
+                                                <div class="post-date-box">
+                                                    <div class="post-date">
+                                                        <a class="date" href="#.">07</a>
+                                                    </div>
+                                                    <div class="post-date-month">
+                                                        <a class="month" href="#.">Mar</a>
+                                                    </div>
+                                                </div>
+                                                <a href="blog-detail.html"><img alt="blog" src="{% static 'images/blog/blog-09.jpg' %}"></a>
+                                                <div class="post-share">
+                                                    <a href="#."><i class="fa fa-comment"></i> 37</a>
+                                                    <a href="#."><i class="fa fa-eye"></i> 180</a>
+                                                    <a href="#."><i class="fa fa-share-alt"></i> Share</a>
+                                                </div>
+                                            </div>
+                                            <div class="post-detail">
+                                                <header class="entry-header">
+                                                    <div class="blog_meta_category">
+                                                        <span class="arrow-right"></span>
+                                                        <a href="#." rel="category tag">Design</a>, 
+                                                        <a href="#." rel="category tag">art</a>
+                                                    </div>
+                                                    <h3 class="entry-title"><a href="blog-detail.html">Here each week my friends</a></h3>
+                                                    <div class="entry-meta">
+                                                        <span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
+                                                        <span><i class="fa fa-comment"></i> <a href="#">15 Comments</a></span>
+                                                    </div>
+                                                </header>
+                                                <div class="entry-content">
+                                                    <p>Curabitur sagittis fermentum ante at imperdiet. Proin viverra arcu ac quam finibus, efficitur rutrum turpis auctor. Maecenas at mi vitae lacus tempus egestas nec eget eros. Nunc eget est tellus. Quisque quis mattis eros, sit amet facilisis felis. Aliquam molestie purus venenatis lorem laoreet venenatis.....</p>
+                                                </div>
+                                                <footer class="entry-footer">
+                                                    <a class="btn btn-default" href="blog-detail.html">Read More</a>
+                                                </footer>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End: Latest Blog -->
+
+<!-- Start: Testimonials Section -->
+<section class="testimonials">
+    <div class="container">
+        <h3 class="section-title">Words From our Community</h3>
+        <span class="underline center"></span>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="row">
+            <div class="col-md-12" data-wow-delay="0.2s">
+                <div class="carousel slide" data-interval="false" data-ride="carousel" id="testimonials">
+                    <!-- Carousel Slides / Quotes -->
+                    <div class="owl-carousel">
+                        <div class="single-testimonial-box">
+                            <div class="top-portion">
+                                <img src="{% static 'images/home-testimonial.jpg' %}" alt="Testimonial Image" />
+                                <div class="user-comment">
+                                    <div class="arrow-left"></div>
+                                    <blockquote cite="#">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna magna, rhoncus eget commodo et, dignissim non nulla. Sed sit amet vestibulum ex. Donec dolor velit
+                                    </blockquote>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="bottom-portion">
+                                <a href="#" class="author">
+                                    Maria B (<small>Student )</small>
+                                </a>
+                                <div class="social-share-links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="single-testimonial-box">
+                            <div class="top-portion">
+                                <img src="{% static 'images/home-testimonial-01.jpg' %}" alt="Testimonial Image" />
+                                <div class="user-comment">
+                                    <div class="arrow-left"></div>
+                                    <blockquote cite="#">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna magna, rhoncus eget commodo et, dignissim non nulla. Sed sit amet vestibulum ex. Donec dolor velit
+                                    </blockquote>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="bottom-portion">
+                                <a href="#" class="author">
+                                    Adrey Pachai (<small>Student )</small>
+                                </a>
+                                <div class="social-share-links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="single-testimonial-box">
+                            <div class="top-portion">
+                                <img src="{% static 'images/home-testimonial-01.jpg' %}" alt="Testimonial Image" />
+                                <div class="user-comment">
+                                    <div class="arrow-left"></div>
+                                    <blockquote cite="#">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna magna, rhoncus eget commodo et, dignissim non nulla. Sed sit amet vestibulum ex. Donec dolor velit
+                                    </blockquote>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="bottom-portion">
+                                <a href="#" class="author">
+                                    Adrey Pachai (<small>Student )</small>
+                                </a>
+                                <div class="social-share-links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End: Testimonials Section -->
+
+<!-- Start: Newsletter -->
+<section class="newsletter section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="center-content">
+                    <h2 class="section-title">Subscribe to our Newsletters</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Enter your Email!" id="newsletter" name="newsletter" type="email">
+                    <input class="form-control" value="Subscribe" type="submit">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End: Newsletter -->
+
+{% endblock %}
