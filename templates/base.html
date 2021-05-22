@@ -44,7 +44,7 @@
                                         <div class="topbar-info">
                                             <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
                                             <span>/</span>
-                                            <a href="{% static 'mailto:support@libraria.com' %}"><i class="fa fa-envelope"></i>support@libraria.com</a>
+                                            <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -70,19 +70,10 @@
                                     <div class="col-sm-8">
                                         <div class="navbar-collapse hidden-sm hidden-xs">
                                             <ul class="nav navbar-nav">
-                                                <li class="dropdown active23qq">
-                                                    <a href="index-2.html">Home</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-v3.html">About Us</a>
-                                                </li>
-                                                
-                                                <li class="dropdown">
-                                                    <a href="books-media-list-view.html">Books</a>
-                                                </li>
-                                                <li class="dropdown">
-                                                    <a href="blog.html">Blogs</a>
-                                                </li>
+                                                <li><a href="{% url 'website:home' %}">Home</a></li>
+                                                <li><a href="home-v3.html">About Us</a></li>
+                                                <li><a href="books-media-list-view.html">Books</a></li>
+                                                <li><a href="{% url 'website:blogs' %}">Blogs</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
                                             </ul>
                                         </div>
@@ -186,17 +177,17 @@
                                 <span class="underline left"></span>
                                 <div class="menu-quick-links-container">
                                     <ul id="menu-quick-links" class="menu">
-                                        <li><a href="#">Home</a></li>
+                                        <li><a href="{% url 'website:home' %}">Home</a></li>
                                         <li><a href="#">About Us</a></li>
                                         <li><a href="#">Books</a></li>
-                                        <li><a href="#">Blogs</a></li>
+                                        <li><a href="{% url 'website:blogs' %}">Blogs</a></li>
                                         <li><a href="#">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>            
             </div>
             <div class="sub-footer">
                 <div class="container">
