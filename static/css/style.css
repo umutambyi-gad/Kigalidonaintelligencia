@@ -13545,25 +13545,25 @@ a:focus {
   width: 100%;
 }
 .page-banner.about-banner {
-  background-image: url(images/page-banners/about-banner.jpg);
+  background-image: url(../images/page-banners/about-banner.jpg);
 }
 .page-banner.blog-banner {
-  background-image: url(images/page-banners/blog-banner.jpg);
+  background-image: url(../images/page-banners/blog-banner.jpg);
 }
 .page-banner.contact-banner {
-  background-image: url(images/page-banners/contact-banner.jpg);
+  background-image: url(../images/page-banners/contact-banner.jpg);
 }
 .page-banner.portfolio-banner {
-  background-image: url(images/page-banners/portfolio-banner.jpg);
+  background-image: url(../images/page-banners/portfolio-banner.jpg);
 }
 .page-banner.product-banner {
-  background-image: url(images/page-banners/product-banner.jpg);
+  background-image: url(../images/page-banners/product-banner.jpg);
 }
 .page-banner.services-banner {
-  background-image: url(images/page-banners/services-banner.jpg);
+  background-image: url(../images/page-banners/services-banner.jpg);
 }
 .page-banner.signin-banner {
-  background-image: url(images/page-banners/signin-banner.jpg);
+  background-image: url(../images/page-banners/signin-banner.jpg);
 }
 .page-banner .banner-header {
   display: block;
