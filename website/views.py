@@ -11,8 +11,14 @@ def aboutUs(request):
 def books(request):
     return render(request, 'books.html')
 
+def bookSingle(request):
+    return render(request, 'book-single.html')
+
 def blogs(request):
     return render(request, 'blogs.html')
+
+def blogSingle(request):
+    return render(request, 'blog-single.html')
 
 def contact(request):
     return render(request, 'contact.html')
