@@ -72,7 +72,7 @@
                                             <ul class="nav navbar-nav">
                                                 <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'website:home' %}">Home</a></li>
                                                 <li class="{% if request.path == '/about-us' %}active{% endif %}"><a href="home-v3.html">About Us</a></li>
-                                                <li class="{% if request.path == '/books' %}active{% endif %}"><a href="books-media-list-view.html">Books</a></li>
+                                                <li class="{% if request.path == '/books' %}active{% endif %}"><a href="{% url 'website:books' %}">Books</a></li>
                                                 <li class="{% if request.path == '/blogs' %}active{% endif %}"><a href="{% url 'website:blogs' %}">Blogs</a></li>
                                                 <li class="{% if request.path == '/contact' %}active{% endif %}"><a href="{% url 'website:contact' %}">Contact</a></li>
                                             </ul>
@@ -179,7 +179,7 @@
                                     <ul id="menu-quick-links" class="menu">
                                         <li><a href="{% url 'website:home' %}">Home</a></li>
                                         <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Books</a></li>
+                                        <li><a href="{% url 'website:books' %}">Books</a></li>
                                         <li><a href="{% url 'website:blogs' %}">Blogs</a></li>
                                         <li><a href="{% url 'website:contact' %}">Contact</a></li>
                                     </ul>
