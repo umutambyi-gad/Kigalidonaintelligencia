@@ -60,7 +60,7 @@
                                         <div class="navbar-header">
                                             <div class="navbar-brand">
                                                 <h1>
-                                                    <a href="index-2.html">
+                                                    <a href="{% url 'website:home' %}">
                                                         <img src="{% static 'images/libraria-logo-v2.png' %}" alt="LIBRARIA" />
                                                     </a>
                                                 </h1>
@@ -71,7 +71,7 @@
                                         <div class="navbar-collapse hidden-sm hidden-xs">
                                             <ul class="nav navbar-nav">
                                                 <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'website:home' %}">Home</a></li>
-                                                <li class="{% if request.path == '/about-us' %}active{% endif %}"><a href="home-v3.html">About Us</a></li>
+                                                <li class="{% if request.path == '/about-us' %}active{% endif %}"><a href="{% url 'website:aboutUs' %}">About Us</a></li>
                                                 <li class="{% if request.path == '/books' %}active{% endif %}"><a href="{% url 'website:books' %}">Books</a></li>
                                                 <li class="{% if request.path == '/blogs' %}active{% endif %}"><a href="{% url 'website:blogs' %}">Blogs</a></li>
                                                 <li class="{% if request.path == '/contact' %}active{% endif %}"><a href="{% url 'website:contact' %}">Contact</a></li>
@@ -178,7 +178,7 @@
                                 <div class="menu-quick-links-container">
                                     <ul id="menu-quick-links" class="menu">
                                         <li><a href="{% url 'website:home' %}">Home</a></li>
-                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="{% url 'website:aboutUs' %}">About Us</a></li>
                                         <li><a href="{% url 'website:books' %}">Books</a></li>
                                         <li><a href="{% url 'website:blogs' %}">Blogs</a></li>
                                         <li><a href="{% url 'website:contact' %}">Contact</a></li>
@@ -193,7 +193,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="footer-text col-md-3">
-                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                            <p><a target="_blank" href="">Templates Hub</a></p>
                         </div>
                         <div class="col-md-9 pull-right">
                             <p class="lead">Copyright &copy; 2021 by <strong><a href="#">Umutambyi Gad</a></strong></p>
