@@ -5,6 +5,9 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'index.html')
 
+def aboutUs(request):
+    return render(request, 'about-us.html')
+
 def books(request):
     return render(request, 'books.html')
 
