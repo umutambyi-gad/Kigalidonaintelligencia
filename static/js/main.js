@@ -360,6 +360,8 @@ $(function () {
         infiniteLoop: true,
         shrinkItems: true
     });
+    
+    /*
 
     //Contact Form Submit/Validation
     //--------------------------------------------------------
@@ -420,6 +422,8 @@ $(function () {
         }
         return false;
     });
+    
+    */
 });
 
 $( window ).load(function() {
