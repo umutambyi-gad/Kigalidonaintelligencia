@@ -9233,7 +9233,7 @@ a:focus {
   z-index: -1;
 }
 .mm-list > li .close {
-  background: url(images/close_icon.png) no-repeat;
+  background: url(../images/close_icon.png) no-repeat;
   border: 0px;
   cursor: pointer;
   float: right;
@@ -9255,8 +9255,9 @@ a:focus {
   background-color: transparent;
 }
 .mm-list > li.mm-selected > a.close:not(.mm-subopen) {
-  background: url(images/close_icon.png) no-repeat;
+  background: url(../images/close_icon.png) no-repeat;
 }
+
 .mobile-top-head {
   background-color: rgba(255, 255, 255, 0.94);
   display: block;
@@ -10716,6 +10717,84 @@ a:focus {
     background-attachment: scroll;
   }
 }
+
+.add-testimony .custom-file {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  text-align: left;
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  -webkit-box-direction: normal;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.add-testimony .custom-file-input {
+  word-wrap: break-word;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  margin: 0;
+  opacity: 0;
+  color: #fff;
+}
+
+.add-testimony .custom-file-label {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  text-align: left;
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 16px;
+  -webkit-box-direction: normal;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: .5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  color: #bbb;
+  font-weight: 600;
+  color: #bbb;
+   font-weight: 600;
+}
+
+.add-testimony .icon {
+  width: 40px;
+  height: 40px;
+}
+.add-testimony .icon span {
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  color: #f6682c;
+  font-weight: 900;
+  font-size: 30px;
+}
+
 .testimonials h3 {
   color: #fff;
 }
