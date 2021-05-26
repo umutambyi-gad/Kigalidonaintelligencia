@@ -66,6 +66,11 @@ html {
 body {
   margin: 0;
 }
+
+a h1 {
+  color: #84bb45;
+}
+
 article,
 aside,
 details,
