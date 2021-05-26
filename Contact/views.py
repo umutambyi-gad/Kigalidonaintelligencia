@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from decouple import Csv, config
 
 
 # Create your views here.
@@ -15,7 +16,7 @@ def contact(request):
         send_mail(subject, # subject
             f'{sender_names} sends {message}', # message
 			sender_email, # from_email
-			['umutambyig@gmail.com']
+			config('RECIEVER_EMAILS', cast=Csv())
         )
         return redirect('/contact')
 
