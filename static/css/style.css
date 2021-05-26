@@ -18351,7 +18351,7 @@ a:focus {
   left: 0;
   height: 1px;
   width: 72px;
-  background: url('images/underline.png') center center no-repeat;
+  background: url('../images/underline.png') center center no-repeat;
 }
 .sidebar .widget-sub-title {
   border-bottom: 1px solid #f4f4f4;
