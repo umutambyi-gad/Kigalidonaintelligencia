@@ -12,7 +12,7 @@
         </div>
         <div class="breadcrumb">
             <ul>
-                <li><a href="{% url 'website:home' %}">Home</a></li>
+                <li><a href="{% url 'Home:home' %}">Home</a></li>
                 <li>Contact</li>
             </ul>
         </div>
@@ -133,7 +133,7 @@
                                                     <h2>Send us a message</h2>
                                                     <span class="underline left"></span>
                                                     <div class="contact-fields">
-                                                        <form id="contact" name="contact" action="{% url 'website:contact' %}" method="POST">
+                                                        <form id="contact" name="contact" action="{% url 'Contact:contact' %}" method="POST">
                                                             {% csrf_token %}
                                                             <div class="row">
                                                                 <div class="col-md-6 col-sm-6">

@@ -60,7 +60,7 @@
                                         <div class="navbar-header">
                                             <div class="navbar-brand">
                                                 <h1>
-                                                    <a href="{% url 'website:home' %}">
+                                                    <a href="{% url 'Home:home' %}">
                                                         <img src="{% static 'images/libraria-logo-v2.png' %}" alt="LIBRARIA" />
                                                     </a>
                                                 </h1>
@@ -70,11 +70,11 @@
                                     <div class="col-sm-8">
                                         <div class="navbar-collapse hidden-sm hidden-xs">
                                             <ul class="nav navbar-nav">
-                                                <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'website:home' %}">Home</a></li>
-                                                <li class="{% if request.path == '/about-us' %}active{% endif %}"><a href="{% url 'website:aboutUs' %}">About Us</a></li>
-                                                <li class="{% if request.path == '/books' %}active{% endif %}{% block book-active %}{% endblock %}"><a href="{% url 'website:books' %}">Books</a></li>
-                                                <li class="{% if request.path == '/blogs' %}active{% endif %}{% block blog-active %}{% endblock %}"><a href="{% url 'website:blogs' %}">Blogs</a></li>
-                                                <li class="{% if request.path == '/contact' %}active{% endif %}"><a href="{% url 'website:contact' %}">Contact</a></li>
+                                                <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'Home:home' %}">Home</a></li>
+                                                <li class="{% if request.path == '/about-us/' %}active{% endif %}"><a href="{% url 'About-us:aboutUs' %}">About Us</a></li>
+                                                <li class="{% if request.path == '/books/' %}active{% endif %}{% block book-active %}{% endblock %}"><a href="{% url 'Books:books' %}">Books</a></li>
+                                                <li class="{% if request.path == '/blogs/' %}active{% endif %}{% block blog-active %}{% endblock %}"><a href="{% url 'Blogs:blogs' %}">Blogs</a></li>
+                                                <li class="{% if request.path == '/contact/' %}active{% endif %}"><a href="{% url 'Contact:contact' %}">Contact</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -89,11 +89,11 @@
                                         <h4>Navigation</h4>
                                         <a href="#" class="close"></a>
                                     </li>
-                                    <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'website:home' %}">Home</a></li>
-                                    <li class="{% if request.path == '/about-us' %}active{% endif %}"><a href="{% url 'website:aboutUs' %}">About Us</a></li>
-                                    <li class="{% if request.path == '/books' %}active{% endif %}"><a href="{% url 'website:books' %}">Books</a></li>
-                                    <li class="{% if request.path == '/blogs' %}active{% endif %}"><a href="{% url 'website:blogs' %}">Blogs</a></li>
-                                    <li class="{% if request.path == '/contact' %}active{% endif %}"><a href="{% url 'website:contact' %}">Contact</a></li>
+                                    <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'Home:home' %}">Home</a></li>
+                                    <li class="{% if request.path == '/about-us/' %}active{% endif %}"><a href="{% url 'About-us:aboutUs' %}">About Us</a></li>
+                                    <li class="{% if request.path == '/books/' %}active{% endif %}"><a href="{% url 'Books:books' %}">Books</a></li>
+                                    <li class="{% if request.path == '/blogs/' %}active{% endif %}"><a href="{% url 'Blogs:blogs' %}">Blogs</a></li>
+                                    <li class="{% if request.path == '/contact/' %}active{% endif %}"><a href="{% url 'Contact:contact' %}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -139,11 +139,11 @@
                                 <span class="underline left"></span>
                                 <div class="menu-quick-links-container">
                                     <ul id="menu-quick-links" class="menu">
-                                        <li><a href="{% url 'website:home' %}">Home</a></li>
-                                        <li><a href="{% url 'website:aboutUs' %}">About Us</a></li>
-                                        <li><a href="{% url 'website:books' %}">Books</a></li>
-                                        <li><a href="{% url 'website:blogs' %}">Blogs</a></li>
-                                        <li><a href="{% url 'website:contact' %}">Contact</a></li>
+                                        <li><a href="{% url 'Home:home' %}">Home</a></li>
+                                        <li><a href="{% url 'About-us:aboutUs' %}">About Us</a></li>
+                                        <li><a href="{% url 'Books:books' %}">Books</a></li>
+                                        <li><a href="{% url 'Blogs:blogs' %}">Blogs</a></li>
+                                        <li><a href="{% url 'Contact:contact' %}">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
