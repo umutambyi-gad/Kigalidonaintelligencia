@@ -15716,7 +15716,7 @@ a:focus {
 13.1.4. Services
 --------------------------------------------------------------*/
 .who-we-are {
-  padding: 0;
+  padding: 60px 0;
 }
 .who-we-are .company-info {
   padding: 0;
@@ -15759,7 +15759,7 @@ a:focus {
   }
 }
 .who-we-are .company-info .company-image {
-  background-image: url("images/who-we-are-image.jpg");
+  background-image: url("../images/who-we-are-image.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15830,7 +15830,7 @@ a:focus {
   color: #00adef;
 }
 .company-info-box {
-  background: url('images/company-serives-bg-left.jpg'), url('images/company-serives-bg-right.jpg');
+  background: url('../images/company-serives-bg-left.jpg'), url('../images/company-serives-bg-right.jpg');
   background-position: center left, center right;
   background-repeat: no-repeat, no-repeat;
   background-size: 50% 73%, 50% 73%;
