@@ -10701,8 +10701,18 @@ a:focus {
   color: #fff;
   text-align: center;
 }
+
+.add-testimony {
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
 @media (max-width: 1024px) {
-  .testimonials {
+  .testimonials, .add-testimony {
     background-attachment: scroll;
   }
 }
@@ -12637,7 +12647,13 @@ a:focus {
   }
 }
 .layout-v2 .newsletter {
-  background-color: #fff;
+  background-attachment: fixed;
+  background-image: url(../images/testimonials-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
 }
 .layout-v2 .newsletter .form-group input[type='email'] {
   border: 3px solid #f4f4f4;
@@ -12650,6 +12666,9 @@ a:focus {
 }
 .layout-v2 .newsletter .form-group input[type='submit']:hover {
   background-color: #162242;
+}
+.layout-v2 .newsletter h2, .layout-v2 .newsletter p {
+  color: #fff !important;
 }
 .layout-v2 .site-footer #footer-widgets .widget_text a {
   color: #fff;
