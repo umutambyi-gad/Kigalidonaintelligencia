@@ -24,3 +24,21 @@ class HomeWelcoming(models.Model):
         return self.title
     class Meta:
         verbose_name_plural = 'Home welcoming section'
+
+
+class TestimonyAdding(models.Model):
+    author_name = models.CharField(max_length=255)
+    author_email = models.CharField(max_length=255)
+    author_image = models.ImageField(upload_to='media/home/images')
+    testimony = models.TextField()
+    linkedin_profile = models.CharField(max_length=255)
+    facebook_profile = models.CharField(max_length=255)
+    twitter_profile = models.CharField(max_length=255)
+    instagram_profile = models.CharField(max_length=255)
+    added_date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.author_name
+    
+    class Meta:
+        verbose_name_plural = 'Testimony Adding Section'
