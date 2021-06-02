@@ -1,18 +1,19 @@
 from django.contrib import admin
 from .models import (
     HomeBackground,
-    HomeWelcoming
+    HomeWelcoming,
+	TestimonyAdding
 )
 
 
 # Register your models here.
 class HomeBackgroundAdmin(admin.ModelAdmin):
 	fieldsets = (
-	(None, {
-		'fields': ('title', 'description')
+		(None, {
+			'fields': ('title', 'description')
 		}),
-	('Image section', {
-		'fields': ('image', )
+		('Image section', {
+			'fields': ('image', )
 		})
 	)
 	list_display = ('title', 'added_date')
@@ -22,13 +23,30 @@ admin.site.register(HomeBackground, HomeBackgroundAdmin)
 
 class HomeWelcomingAdmin(admin.ModelAdmin):
 	fieldsets = (
-	(None, {
-		'fields': ('title', 'description')
+		(None, {
+			'fields': ('title', 'description')
 		}),
-	('Image section', {
-		'fields': ('image', )
+		('Image section', {
+			'fields': ('image', )
 		})
 	)
 	list_display = ('title', 'added_date')
 
 admin.site.register(HomeWelcoming, HomeWelcomingAdmin)
+
+
+class TestimonyAddingAdmin(admin.ModelAdmin):
+	fieldsets = (
+		(None, {
+			'fields': ('author_name', 'author_email')
+		}),
+		('Image section', {
+			'fields': ('author_image', )
+		}),
+		('Social media section', {
+			'fields': ('linkedin_profile', 'facebook_profile', 'twitter_profile', 'instagram_profile')
+		})
+	)
+	list_display = ('author_name', 'added_date')
+
+admin.site.register(TestimonyAdding, TestimonyAddingAdmin)
