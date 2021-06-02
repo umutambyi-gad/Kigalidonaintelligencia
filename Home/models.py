@@ -29,12 +29,12 @@ class HomeWelcoming(models.Model):
 class TestimonyAdding(models.Model):
     author_name = models.CharField(max_length=255)
     author_email = models.CharField(max_length=255)
-    author_image = models.ImageField(upload_to='media/home/images')
+    author_image = models.ImageField(upload_to='media/home/images', null=True, blank=True)
     testimony = models.TextField()
-    linkedin_profile = models.CharField(max_length=255)
-    facebook_profile = models.CharField(max_length=255)
-    twitter_profile = models.CharField(max_length=255)
-    instagram_profile = models.CharField(max_length=255)
+    linkedin_profile = models.CharField(max_length=255, null=True, blank=True)
+    facebook_profile = models.CharField(max_length=255, null=True, blank=True)
+    twitter_profile = models.CharField(max_length=255, null=True, blank=True)
+    instagram_profile = models.CharField(max_length=255, null=True, blank=True)
     added_date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
