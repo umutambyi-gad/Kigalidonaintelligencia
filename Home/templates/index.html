@@ -532,35 +532,31 @@
         <span class="underline center"></span>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <div class="row">
-            <form id="" name="" action="" method="POST">
+            <form name="" action="{% url 'Home:home' %}" method="POST">
+            {% csrf_token %}
                 <div class="col-md-6">
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Names" required/>
+                            <input class="form-control" name="names" type="text" placeholder="Names" required/>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input class="form-control" type="email" placeholder="Email" required/>
+                            <input class="form-control" name="email" type="email" placeholder="Email" required/>
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-6">
                         <div class="form-group">
                             <div class="custom-file">
-                                <input name="profile" type="file" class="custom-file-input" id="customFiles">
+                                <input name="image" type="file" name="image" class="custom-file-input" id="customFiles">
                                 <label class="custom-file-label" for="customFiles">Add your image (Optional)</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <textarea class="form-control" rows="6" required></textarea>
+                            <textarea class="form-control" rows="6" required name="testimony"></textarea>
                             <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-group form-submit">
-                            <input class="btn btn-default" type="submit" name="submit" value="Send Message" required/>
                         </div>
                     </div>
                 </div>
@@ -570,7 +566,7 @@
                     </div>
                     <div class="col-md-10 col-sm-10">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Linkedin username (Optional)"/>
+                            <input class="form-control" type="text" name="linkedin" placeholder="Linkedin username (Optional)"/>
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-2">
@@ -580,7 +576,7 @@
                     </div>
                     <div class="col-md-10 col-sm-10">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Facebook username (Optional)"/>
+                            <input class="form-control" type="text" name="facebook" placeholder="Facebook username (Optional)"/>
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-2">
@@ -590,7 +586,7 @@
                     </div>
                     <div class="col-md-10 col-sm-10">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="twitter username (Optional)"/>
+                            <input class="form-control" type="text" name="twitter" placeholder="twitter username (Optional)"/>
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-2">
@@ -600,7 +596,14 @@
                     </div>
                     <div class="col-md-10 col-sm-10">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Instagram username (Optional)"/>
+                            <input class="form-control" type="text" name="instagram" placeholder="Instagram username (Optional)"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-sm-12">
+                        <div class="form-group form-submit">
+                            <input class="btn btn-default" type="submit" name="submit" value="Submit" required/>
                         </div>
                     </div>
                 </div>
