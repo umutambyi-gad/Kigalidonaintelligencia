@@ -17400,7 +17400,7 @@ a:focus {
 .grid {
   margin: 100px 0 0;
 }
-#loadmore {
+#loadmore, #backtohome {
   background-color: #282828;
   display: block;
   padding: 15px 20px;
@@ -17411,7 +17411,7 @@ a:focus {
   width: 170px;
   margin: 0 auto;
 }
-#loadmore:hover {
+#loadmore:hover, #backtohome:hover {
   background-color: #ff7236;
 }
 .blog-page .blog-section {
