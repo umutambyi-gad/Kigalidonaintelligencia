@@ -1202,6 +1202,9 @@ hr {
   border: 0;
   border-top: 1px solid #eeeeee;
 }
+.margin-top-bottom {
+  margin: 25px 0 !important;
+}
 .sr-only {
   position: absolute;
   width: 1px;
