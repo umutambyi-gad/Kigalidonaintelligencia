@@ -38,7 +38,7 @@ admin.site.register(HomeWelcoming, HomeWelcomingAdmin)
 class TestimonyAddingAdmin(admin.ModelAdmin):
 	fieldsets = (
 		(None, {
-			'fields': ('author_name', 'author_email')
+			'fields': ('author_name', 'author_email', 'testimony')
 		}),
 		('Image section', {
 			'fields': ('author_image', )
