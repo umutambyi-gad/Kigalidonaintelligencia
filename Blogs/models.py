@@ -16,6 +16,18 @@ class Tags(models.Model):
 		verbose_name_plural = 'Tags'
 
 
+class Categories(models.Model):
+	category = models.CharField(max_length=150)
+	added_date = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return self.tag
+
+	class Meta:
+		verbose_name_plural = 'Categories'
+
+
+
 class Blogs(models.Model):
     author = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True)
     title = models.CharField(max_length=300)
@@ -23,7 +35,8 @@ class Blogs(models.Model):
     content = models.TextField()
     thumbnail = models.ImageField(upload_to='media/blogs/images')
     author_comment = models.TextField()
-    related_tag = models.ManyToManyField(Tags)
+    related_tags = models.ManyToManyField(Tags)
+    related_categories = models.ManyToManyField(Categories)
     first_image = models.ImageField(upload_to='media/blogs/images', null=True, blank=True)
     second_image = models.ImageField(upload_to='media/blogs/images', null=True, blank=True)
     third_image = models.ImageField(upload_to='media/blogs/images', null=True, blank=True)
