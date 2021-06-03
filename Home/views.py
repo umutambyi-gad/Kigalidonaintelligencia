@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import TestimonyAdding
+from django.contrib.auth.models import User, auth
 
 
 # Create your views here.
@@ -39,3 +40,21 @@ def home(request):
         redirect('/')
 
     return render(request, 'index.html')
+
+def login(request):
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+
+            user = auth.authenticate(
+                    username=username,
+                    password=password
+                )
+            if user is not None:
+                auth.login(request, user)
+                return redirect('/')
+            else:
+                return redirect('login/')
+    
+    return render(request, 'login.html')
