@@ -45,8 +45,10 @@ def home(request):
         redirect('/')
     
     home_background = HomeBackground.objects.all()
+    home_welcoming = HomeWelcoming.objects.first()
     context = {
-        'home_background': home_background
+        'home_background': home_background,
+        'home_welcoming': home_welcoming
     }
     return render(request, 'index.html', context=context)
 
