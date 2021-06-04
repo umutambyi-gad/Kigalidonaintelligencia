@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from decouple import Csv, config
+from .models import Contact
+
 
 
 # Create your views here.
@@ -20,4 +22,9 @@ def contact(request):
         )
         return redirect('/contact')
 
-    return render(request, 'contact.html')
+    contacts = Contact.objects.all()
+    context = {
+        'contacts': contacts
+    }
+
+    return render(request, 'contact.html', context=context)
