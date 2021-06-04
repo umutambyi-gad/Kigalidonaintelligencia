@@ -19,6 +19,12 @@ class HomeWelcoming(models.Model):
     image = models.ImageField(upload_to='media/home/images')
     description = models.TextField()
     added_date = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if HomeWelcoming.objects.count() > 0:
+            return False
+        
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return self.title
