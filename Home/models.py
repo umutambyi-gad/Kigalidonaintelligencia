@@ -9,7 +9,7 @@ class HomeBackground(models.Model):
     added_date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.background_title
+        return self.title
     class Meta:
         verbose_name_plural = 'Home background section'
 
