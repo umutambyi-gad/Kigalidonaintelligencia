@@ -1,10 +1,15 @@
 from django.shortcuts import redirect, render
-from .models import TestimonyAdding
 from django.contrib.auth.models import User, auth
+from .models import (
+    HomeBackground,
+    HomeWelcoming,
+    TestimonyAdding
+)
 
 
 # Create your views here.
 def home(request):
+    # Addition of testimonies
     if request.method == 'POST':
         author_names = request.POST['names']
         author_email = request.POST['email']
@@ -38,8 +43,13 @@ def home(request):
             )
         
         redirect('/')
+    
+    home_background = HomeBackground.objects.all()
+    context = {
+        'home_background': home_background
+    }
+    return render(request, 'index.html', context=context)
 
-    return render(request, 'index.html')
 
 def login(request):
     if not request.user.is_authenticated:
