@@ -5,6 +5,7 @@ from .models import (
     HomeWelcoming,
     TestimonyAdding
 )
+from Contact.views import footerContacts
 
 
 # Create your views here.
@@ -52,6 +53,7 @@ def home(request):
         'home_welcoming': home_welcoming,
         'testimonies': testinony_adding
     }
+    context = {**context, **footerContacts(request)}
     return render(request, 'index.html', context=context)
 
 
@@ -70,5 +72,6 @@ def login(request):
                 return redirect('/')
             else:
                 return redirect('login/')
-    
-    return render(request, 'login.html')
+    context = {}
+    context = {**context, **footerContacts(request)}
+    return render(request, 'login.html', context=context)

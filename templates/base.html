@@ -42,9 +42,9 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="topbar-info">
-                                            <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+250788888888</a>
+                                            <a href="tel:{{ footer_contact.phone }}"><i class="fa fa-phone"></i>{{ footer_contact.phone }}</a>
                                             <span>/</span>
-                                            <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@intelligencia.com</a>
+                                            <a href="mailto:{{ footer_contact.email }}"><i class="fa fa-envelope"></i>{{ footer_contact.email }}</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -131,15 +131,15 @@
                                 <address>
                                     <div class="info">
                                         <i class="fa fa-location-arrow"></i>
-                                        <span>21 King Street, Melbourne, Victoria 3000 Australia</span>
+                                        <span>{{ footer_contact.address }}</span>
                                     </div>
                                     <div class="info">
                                         <i class="fa fa-envelope"></i>
-                                        <span><a href="{% static 'mailto:support@libraria.com' %}">support@libraria.com</a></span>
+                                        <span><a href="mailto:{{ footer_contact.email }}">{{ footer_contact.email }}</a></span>
                                     </div>
                                     <div class="info">
                                         <i class="fa fa-phone"></i>
-                                        <span><a href="{% static 'tel:012-345-6789' %}">+ 012-345-6789</a></span>
+                                        <span><a href="tel:{{ footer_contact.phone }}">{{ footer_contact.phone }}</a></span>
                                     </div>
                                 </address>
                             </div>
@@ -166,10 +166,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="footer-text col-md-3">
-                            <p><a target="_blank" href="">Templates Hub</a></p>
+                            <p><a href="{% url 'Home:home' %}">Intelligencia</a></p>
                         </div>
                         <div class="col-md-9 pull-right">
-                            <p class="lead">Copyright &copy; 2021 by <strong><a href="#">Umutambyi Gad</a></strong></p>
+                            <p class="lead">Copyright &copy; 2021 by <strong><a href="https://umutambyigad.me">Umutambyi Gad</a></strong></p>
                         </div>
                     </div>
                 </div>

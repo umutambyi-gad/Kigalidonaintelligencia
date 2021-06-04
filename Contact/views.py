@@ -4,8 +4,12 @@ from decouple import Csv, config
 from .models import Contact
 
 
-
 # Create your views here.
+def footerContacts(request):
+    return {
+        'footer_contact': Contact.objects.first()
+    }
+
 def contact(request):
     if request.method == 'POST':
         sender_firstname = request.POST['firstname']
@@ -26,5 +30,7 @@ def contact(request):
     context = {
         'contacts': contacts
     }
+
+    context = {**context, **footerContacts(request)}
 
     return render(request, 'contact.html', context=context)
