@@ -46,9 +46,11 @@ def home(request):
     
     home_background = HomeBackground.objects.all()
     home_welcoming = HomeWelcoming.objects.first()
+    testinony_adding = TestimonyAdding.objects.all()
     context = {
         'home_background': home_background,
-        'home_welcoming': home_welcoming
+        'home_welcoming': home_welcoming,
+        'testimonies': testinony_adding
     }
     return render(request, 'index.html', context=context)
 
