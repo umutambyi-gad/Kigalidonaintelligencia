@@ -8,7 +8,13 @@ class AboutUs(models.Model):
     description = models.TextField()
     added_date = models.DateTimeField(auto_now_add=True)
     
+    def save(self, *args, **kwargs):
+        if AboutUs.objects.count() > 0:
+            return False
+        
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return self.background_title
+        return self.title
     class Meta:
         verbose_name_plural = 'About us section'
