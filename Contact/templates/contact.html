@@ -36,9 +36,9 @@
                                     <div class="bottom-info">
                                         <span class="top-arrow"></span>
                                         <ul>
-                                            <li>121 King Street, Melbourne </li>
-                                            <li>Victoria 3000 Australia</li>
-                                            <li>PO Box 16122</li>
+                                            {% for contact in contacts %}
+                                            <li>{{ contact.address }}</li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -46,9 +46,9 @@
                                     <div class="bottom-info orange-bg">
                                         <span class="bottom-arrow"></span>
                                         <ul>
-                                            <li>121 King Street, Melbourne </li>
-                                            <li>Victoria 3000 Australia</li>
-                                            <li>PO Box 16122</li>
+                                            {% for contact in contacts %}
+                                            <li>{{ contact.address }}</li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                     <div class="top-info dark-bg">
@@ -64,9 +64,9 @@
                                     <div class="bottom-info">
                                         <span class="top-arrow"></span>
                                         <ul>
-                                            <li><a href="tel:+123-456-7890">Local: +123-456-7890</a></li>
-                                            <li><a href="tel:+123-456-7890">Local: +123-456-7890</a></li>
-                                            <li><a href="fax:(001)-254-7359">Fax: (001)-254-7359</a></li>
+                                            {% for contact in contacts %}
+                                            <li><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -74,9 +74,9 @@
                                     <div class="bottom-info orange-bg">
                                         <span class="bottom-arrow"></span>
                                         <ul>
-                                            <li><a href="tel:+123-456-7890">Local: +123-456-7890</a></li>
-                                            <li><a href="tel:+123-456-7890">Local: +123-456-7890</a></li>
-                                            <li><a href="fax:(001)-254-7359">Fax: (001)-254-7359</a></li>
+                                            {% for contact in contacts %}
+                                            <li><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                     <div class="top-info dark-bg">
@@ -92,9 +92,9 @@
                                     <div class="bottom-info">
                                         <span class="top-arrow"></span>
                                         <ul>
-                                            <li>www.libraria.com</li>
-                                            <li>support@libraria.com</li>
-                                            <li>info@libraria.com</li>
+                                            {% for contact in contacts %}
+                                            <li><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -102,9 +102,9 @@
                                     <div class="bottom-info orange-bg">
                                         <span class="bottom-arrow"></span>
                                         <ul>
-                                            <li><a href="http://www.libraria.com/">www.libraria.com </a></li>
-                                            <li><a href="{% static 'mailto:support@libraria.com' %}">support@libraria.com</a></li>
-                                            <li><a href="{% static 'mailto:info@libraria.com' %}">info@libraria.com</a></li>
+                                            {% for contact in contacts %}
+                                            <li><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                     <div class="top-info dark-bg">
