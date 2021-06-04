@@ -405,87 +405,45 @@
                 <div class="carousel slide" data-interval="false" data-ride="carousel" id="testimonials">
                     <!-- Carousel Slides / Quotes -->
                     <div class="owl-carousel">
+                        {% for testimony in testimonies %}
                         <div class="single-testimonial-box">
                             <div class="top-portion">
-                                <img src="{% static 'images/home-testimonial.jpg' %}" alt="Testimonial Image" />
+                                <img src="{{ testimony.author_image.url }}" alt="Testimonial Image" />
                                 <div class="user-comment">
                                     <div class="arrow-left"></div>
                                     <blockquote cite="#">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna magna, rhoncus eget commodo et, dignissim non nulla. Sed sit amet vestibulum ex. Donec dolor velit
+                                        {{ testimony.testimony }}
                                     </blockquote>
                                 </div>
                                 <div class="clear"></div>
                             </div>
                             <div class="bottom-portion">
                                 <a href="#" class="author">
-                                    Maria B <small>(Student )</small>
+                                    {{ testimony.author_name }} <small>(Student )</small>
                                 </a>
+                                {% if testimony.linkedin_profile or testimony.facebook_profile or  testimony.twitter_profile or testimony.instagram_profile %}
                                 <div class="social-share-links">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        {% if testimony.linkedin_profile %}
+                                        <li><a href="https://linkedin.com/{{ testimony.linkedin_profile }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        {% endif %}
+                                        {% if testimony.facebook_profile %}
+                                        <li><a href="https://facebook.com/{{ testimony.facebook_profile }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        {% endif %}
+                                        {% if testimony.twitter_profile %}
+                                        <li><a href="https://twitter.com/{{ testimony.twitter_profile }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        {% endif %}
+                                        {% if testimony.instagram_profile %}
+                                        <li><a href="https://instagram.com/{{ testimony.instagram_profile }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
+                                {% endif %}
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                        <div class="single-testimonial-box">
-                            <div class="top-portion">
-                                <img src="{% static 'images/home-testimonial-01.jpg' %}" alt="Testimonial Image" />
-                                <div class="user-comment">
-                                    <div class="arrow-left"></div>
-                                    <blockquote cite="#">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna magna, rhoncus eget commodo et, dignissim non nulla. Sed sit amet vestibulum ex. Donec dolor velit
-                                    </blockquote>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="bottom-portion">
-                                <a href="#" class="author">
-                                    Adrey Pachai <small>(Student )</small>
-                                </a>
-                                <div class="social-share-links">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="single-testimonial-box">
-                            <div class="top-portion">
-                                <img src="{% static 'images/home-testimonial-01.jpg' %}" alt="Testimonial Image" />
-                                <div class="user-comment">
-                                    <div class="arrow-left"></div>
-                                    <blockquote cite="#">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna magna, rhoncus eget commodo et, dignissim non nulla. Sed sit amet vestibulum ex. Donec dolor velit
-                                    </blockquote>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="bottom-portion">
-                                <a href="#" class="author">
-                                    Adrey Pachai <small>(Student )</small>
-                                </a>
-                                <div class="social-share-links">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
