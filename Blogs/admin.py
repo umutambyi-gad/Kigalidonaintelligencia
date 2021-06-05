@@ -10,7 +10,7 @@ from .models import (
 class TagsAdmin(admin.ModelAdmin):
 	fieldsets = (
 		(None, {
-			'fields': ('tag', 'added_date')
+			'fields': ('tag',)
 		}),
 		
 	)
@@ -22,7 +22,7 @@ admin.site.register(Tags, TagsAdmin)
 class CategoriesAdmin(admin.ModelAdmin):
 	fieldsets = (
 		(None, {
-			'fields': ('category', 'added_date')
+			'fields': ('category',)
 		}),
 		
 	)
