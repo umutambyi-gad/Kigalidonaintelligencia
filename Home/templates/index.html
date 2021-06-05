@@ -49,11 +49,9 @@
                     <div class="form-group">
                         <select name="category" id="category" class="form-control">
                             <option>All Categories</option>
-                            <option>Category 01</option>
-                            <option>Category 02</option>
-                            <option>Category 03</option>
-                            <option>Category 04</option>
-                            <option>Category 05</option>
+                            {% for blog_category in blog_categories %}
+                            <option>{{ blog_category.category }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>

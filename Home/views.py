@@ -3,8 +3,9 @@ from django.contrib.auth.models import User, auth
 from .models import (
     HomeBackground,
     HomeWelcoming,
-    TestimonyAdding
+    TestimonyAdding,
 )
+from Blogs.models import Categories
 from Contact.views import footerContacts
 
 
@@ -48,10 +49,12 @@ def home(request):
     home_background = HomeBackground.objects.all()
     home_welcoming = HomeWelcoming.objects.first()
     testinony_adding = TestimonyAdding.objects.all()
+    blog_categories = Categories.objects.all()
     context = {
         'home_background': home_background,
         'home_welcoming': home_welcoming,
-        'testimonies': testinony_adding
+        'testimonies': testinony_adding,
+        'blog_categories': blog_categories
     }
     context = {**context, **footerContacts(request)}
     return render(request, 'index.html', context=context)
