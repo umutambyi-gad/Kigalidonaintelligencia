@@ -23,6 +23,11 @@ class SocialMediaAdmin(admin.ModelAdmin):
 			'fields': ('linkedin_profile', 'facebook_profile', 'twitter_profile', 'instagram_profile', 'youtube_profile')
 		}),
 	)
+
+	def save_model(self, request, obj, form, change):
+		obj.user = request.user
+		return super().save_model(request, obj, form, change)
+
 	list_display = ('user', 'added_date')
 
 admin.site.register(SocialMedia, SocialMediaAdmin)
