@@ -8,48 +8,58 @@
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
         <ul>
+            {% if social_media.linkedin_profile %}
             <li>
-                <a class="linkedin" href="#" target="_blank">
+                <a class="linkedin" href="{{ social_media.linkedin_profile }}" target="_blank">
                     <span>
                         <i class="fa fa-linkedin"></i>
                     </span>
                 </a>
             </li>
+            {% endif %}
+            {% if social_media.facebook_profile %}
             <li>
-                <a class="facebook" href="#" target="_blank">
+                <a class="facebook" href="{{ social_media.facebook_profile }}" target="_blank">
                     <span>
                         <i class="fa fa-facebook-f"></i>
                     </span>
                 </a>
             </li>
+            {% endif %}
+            {% if social_media.twitter_profile %}
             <li>
-                <a class="twitter" href="#" target="_blank">
+                <a class="twitter" href="{{ social_media.twitter_profile }}" target="_blank">
                     <span>
                         <i class="fa fa-twitter"></i>
                     </span>
                 </a>
             </li>
+            {% endif %}
+            {% if social_media.instagram_profile %}
             <li>
-                <a class="google" href="#" target="_blank">
+                <a class="google" href="{{ social_media.instagram_profile }}" target="_blank">
                     <span>
                         <i class="fa fa-instagram"></i>
                     </span>
                 </a>
             </li>
+            {% endif %}
             <li>
-                <a class="rss" href="#" target="_blank">
+                <a class="rss" href="{{ user.email }}" target="_blank">
                     <span>
                         <i class="fa fa-envelope"></i>
                     </span>
                 </a>
             </li>
+            {% if social_media.youtube_profile %}
             <li>
-                <a class="youtube" href="#" target="_blank">
+                <a class="youtube" href="{{ social_media.youtube_profile }}" target="_blank">
                     <span>
                         <i class="fa fa-youtube"></i>
                     </span>
                 </a>
             </li>
+            {% endif %}
         </ul>
     </div>
 </section>

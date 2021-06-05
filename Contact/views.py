@@ -2,12 +2,13 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from decouple import Csv, config
 from .models import Contact
-
+from AboutUs.models import SocialMedia
 
 # Create your views here.
 def footerContacts(request):
     return {
-        'footer_contact': Contact.objects.first()
+        'footer_contact': Contact.objects.first(),
+        'social_media': SocialMedia.objects.first()
     }
 
 def contact(request):
