@@ -71,7 +71,7 @@ def login(request):
                 auth.login(request, user)
                 return redirect('/')
             else:
-                return redirect('login/')
+                return redirect('/')
     context = {}
     context = {**context, **footerContacts(request)}
     return render(request, 'login.html', context=context)
