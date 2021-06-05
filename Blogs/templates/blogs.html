@@ -20,13 +20,52 @@
 </section>
 <!-- End: Page Banner -->
 
+
+
 <!-- Start: Blog Section -->
 <div id="content" class="site-content margin-top-bottom">
-    
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
             <div class="blog-main-list">
                 <div class="container">
+                    <!-- Start: Search Section -->
+                    <section class="search-filters">
+                        <div class="container">
+                            <div class="filter-box">
+                                <h3>What are you looking for at the library?</h3>
+                                <form action="#" method="get">
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="keywords">Search by Keyword</label>
+                                            <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+                                            <select name="type" class="form-control">
+                                                <option>Blogs</option>
+                                                <option>Books</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+                                            <select name="category" id="category" class="form-control">
+                                                <option>All Categories</option>
+                                                <option>Category 1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="submit" value="Search">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End: Search Section -->
                     <div class="row">
                         {% if user.is_authenticated %}
                         <a href="{% url 'Blogs:new-blog' %}" class="addition">
@@ -42,26 +81,26 @@
                                     <div class="post-thumbnail">
                                         <div class="post-date-box">
                                             <div class="post-date">
-                                                <a class="date" href="#.">07</a>
+                                                <a class="date" href="#">07</a>
                                             </div>
                                             <div class="post-date-month">
-                                                <a class="month" href="#.">Mar</a>
+                                                <a class="month" href="#">Mar</a>
                                             </div>
                                         </div>
-                                        <a href="blog-detail.html"><img alt="blog" src="{% static 'images/blog/blog-01.jpg' %}" /></a>
+                                        <a href="1/blog-1"><img alt="blog" src="{% static 'images/blog/blog-01.jpg' %}" /></a>
                                         <div class="post-share">
-                                            <a href="#."><i class="fa fa-comment"></i> 37</a>
-                                            <a href="#."><i class="fa fa-eye"></i> 180</a>
+                                            <a href="#"><i class="fa fa-comment"></i> 37</a>
+                                            <a href="#"><i class="fa fa-eye"></i> 180</a>
                                         </div>
                                     </div>
                                     <div class="post-detail">
                                         <header class="entry-header">
                                             <div class="blog_meta_category">
                                                 <span class="arrow-right"></span>
-                                                <a href="#." rel="category tag">Design</a>, 
-                                                <a href="#." rel="category tag">art</a>
+                                                <a href="#" rel="category tag">Design</a>, 
+                                                <a href="#" rel="category tag">art</a>
                                             </div>
-                                            <h3 class="entry-title"><a href="blog-detail.html">Here each week my friends</a></h3>
+                                            <h3 class="entry-title"><a href="1/blog-1">Here each week my friends</a></h3>
                                             <div class="entry-meta">
                                                 <span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
                                                 <span><i class="fa fa-comment"></i> <a href="#">15 Comments</a></span>
@@ -71,7 +110,7 @@
                                             <p>Curabitur sagittis fermentum ante at imperdiet. Proin viverra arcu ac quam finibus, efficitur rutrum turpis auctor. Maecenas at mi vitae lacus tempus egestas nec eget eros. Nunc eget est tellus. Quisque quis mattis eros, sit amet facilisis felis. Aliquam molestie purus venenatis lorem laoreet venenatis.....</p>
                                         </div>
                                         <footer class="entry-footer">
-                                            <a class="btn btn-default" href="blog-detail.html">Read More</a>
+                                            <a class="btn btn-default" href="1/blog-1">Read More</a>
                                         </footer>
                                     </div>
                                 </div>
