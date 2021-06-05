@@ -34,7 +34,7 @@ admin.site.register(Categories, CategoriesAdmin)
 class BlogsAdmin(admin.ModelAdmin):
 	fieldsets = (
 		(None, {
-			'fields': ('author', 'title', 'description', 'content', 'author_comment', 'related_tags', 'related_categories')
+			'fields': ('title', 'description', 'content', 'author_comment', 'related_tags', 'related_categories')
 		}),
         ('Image section (Required)', {
             'fields': ('thumbnail', )
@@ -43,6 +43,11 @@ class BlogsAdmin(admin.ModelAdmin):
 			'fields': ('first_image', 'second_image', 'third_image', 'fourth_image', 'fifth_image')
 		}),
 	)
+
+	def save_model(self, request, obj, form, change):
+		obj.author = request.user
+		super().save_model(request, obj, form, change)
+
 	list_display = ('author', 'added_date')
 
 admin.site.register(Blogs, BlogsAdmin)
