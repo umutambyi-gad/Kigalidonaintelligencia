@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block book-active %}active{% endblock %}
+{% block content %}
+
+<!-- Start: Page Banner -->
+<section class="page-banner services-banner">
+    <div class="container">
+        <div class="banner-header">
+            <h2>New Books</h2>
+            <span class="underline center"></span>
+            <p class="lead">The standard chunk of Lorem Ipsum used since</p>
+        </div>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'Home:home' %}">Home</a></li>
+                <li><a href="{% url 'Books:books' %}">Books</a></li>
+                <li>New Book<li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- End: Page Banner -->
+
+<form id="editor-content" action="{% url 'Books:new-book' %}" method="POST">
+    {% csrf_token %}
+    <textarea name="content" id="editor"></textarea>
+    <input type="submit" name="submit">
+</form>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+</script>
+
+{% include 'social-media.html' %}
+
+{% endblock %}
