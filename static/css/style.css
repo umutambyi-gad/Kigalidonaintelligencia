@@ -19250,3 +19250,25 @@ a:focus {
   margin: 25px 0 0 0;
   padding: 10px;
 }
+
+.addition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-blog {
+  margin: 0 15px;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#add {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.blog-page.grid {
+  margin-top: 25px !important;
+}
