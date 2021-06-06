@@ -19240,3 +19240,13 @@ a:focus {
 .bx-wrapper .bx-pager.bx-default-pager a.active {
   background: #ff7236;
 }
+
+#editor-content {
+  margin: 50px;
+  padding: 10px;
+}
+
+#editor-content input[type=submit] {
+  margin: 25px 0 0 0;
+  padding: 10px;
+}
