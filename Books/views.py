@@ -11,3 +11,8 @@ def bookSingle(request, book_id, book_title_slug):
     context = {}
     context = {**context, **footerContacts(request)}
     return render(request, 'book-single.html', context=context)
+
+def newBook(request):
+    context = {}
+    context = {**context, **footerContacts(request)}
+    return render(request, 'new-book.html', context=context)
