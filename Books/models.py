@@ -17,14 +17,14 @@ class Categories(models.Model):
 
 
 class Books(models.Model):
-    athour = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     edition = models.CharField(max_length=255)
     publisher = models.CharField(max_length=255)
     thumbnail = models.ImageField(upload_to='media/books/images', null=True, blank=True)
     short_summary = models.TextField()
     long_summary = models.TextField()
-    related_tags = models.ManyToManyField(Categories)
+    related_tags = models.OneToOneField(Categories, on_delete=models.CASCADE)
     views = models.IntegerField(default=0)
     added_date = models.DateTimeField(auto_now_add=True)
 
