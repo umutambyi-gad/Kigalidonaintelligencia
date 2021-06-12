@@ -42,7 +42,7 @@ class Blogs(models.Model):
     third_image = models.ImageField(upload_to='media/blogs/images', null=True, blank=True)
     fourth_image = models.ImageField(upload_to='media/blogs/images', null=True, blank=True)
     fifth_image = models.ImageField(upload_to='media/blogs/images', null=True, blank=True)
-    views = models.IntegerField()
+    views = models.IntegerField(default=0)
     added_date = models.DateTimeField(auto_now_add=True)
 
     def slug(self):
