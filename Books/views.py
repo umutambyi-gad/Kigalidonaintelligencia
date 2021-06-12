@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from Contact.views import footerContacts
+from .models import Books
+
 
 # Create your views here.
 def books(request):
-    context = {}
+    books = Books.objects.all()
+    context = {
+        'books': books
+    }
     context = {**context, **footerContacts(request)}
     return render(request, 'books.html', context=context)
 
