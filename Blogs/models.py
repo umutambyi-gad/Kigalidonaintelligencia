@@ -29,7 +29,7 @@ class Categories(models.Model):
 
 
 class Blogs(models.Model):
-    author = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=300)
     description = models.TextField()
     content = models.TextField()
@@ -49,10 +49,10 @@ class Blogs(models.Model):
         return slugify(self.title)
 
     def get_absolute_url(self):
-        return reverse("Blogs:blogSingle", args=[str(self.id), str(self.slug())])
+        return reverse("Blogs:blog-single", args=[str(self.id), str(self.slug())])
     
     @classmethod
-    def recent_blog(cls):
+    def recent_blogs(cls):
         recents = cls.objects.order_by('-added_date')
         return recents[:3]
     

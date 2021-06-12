@@ -48,6 +48,6 @@ class BlogsAdmin(admin.ModelAdmin):
 		obj.author = request.user
 		super().save_model(request, obj, form, change)
 
-	list_display = ('author', 'added_date')
+	list_display = ('title', 'added_date')
 
 admin.site.register(Blogs, BlogsAdmin)
