@@ -6,8 +6,12 @@ from .models import (
     TestimonyAdding,
 )
 from Blogs.models import (
-    Categories,
-    Blogs
+    Blogs,
+    Categories as Blog_categories
+)
+from Books.models import (
+    Books,
+    Categories as Book_categories
 )
 from Contact.views import footerContacts
 
@@ -52,14 +56,18 @@ def home(request):
     home_background = HomeBackground.objects.all()
     home_welcoming = HomeWelcoming.objects.first()
     testinony_adding = TestimonyAdding.objects.all()
-    blog_categories = Categories.objects.all()
+    blog_categories = Blog_categories.objects.all()
+    book_categories = Book_categories.objects.all()
     recent_blogs = Blogs.recent_blogs()
+    recent_books = Books.recent_books()
     context = {
         'home_background': home_background,
         'home_welcoming': home_welcoming,
         'testimonies': testinony_adding,
         'blog_categories': blog_categories,
-        'recent_blogs': recent_blogs
+        'book_categories': book_categories,
+        'recent_blogs': recent_blogs,
+        'recent_books': recent_books
     }
     context = {**context, **footerContacts(request)}
     return render(request, 'index.html', context=context)
