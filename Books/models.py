@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
+from django.shortcuts import reverse
+
 
 # Create your models here.
 class Categories(models.Model):
@@ -24,3 +27,20 @@ class Books(models.Model):
     related_tags = models.ManyToManyField(Categories)
     views = models.IntegerField(default=0)
     added_date = models.DateTimeField(auto_now_add=True)
+
+    def slug(self):
+        return slugify(self.name)
+
+    def get_absolute_url(self):
+        return reverse("Books:book-single", args=[str(self.id), str(self.slug())])
+    
+    @classmethod
+    def recent_books(cls):
+        recents = cls.objects.order_by('-added_date')
+        return recents[:9]
+    
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Books'
