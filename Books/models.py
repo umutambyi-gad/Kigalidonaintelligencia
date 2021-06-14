@@ -24,7 +24,7 @@ class Books(models.Model):
     thumbnail = models.ImageField(upload_to='media/books/images', null=True, blank=True)
     short_summary = models.TextField()
     long_summary = models.TextField()
-    related_tags = models.OneToOneField(Categories, on_delete=models.CASCADE)
+    related_category = models.OneToOneField(Categories, on_delete=models.CASCADE)
     views = models.IntegerField(default=0)
     added_date = models.DateTimeField(auto_now_add=True)
 

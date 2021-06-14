@@ -111,143 +111,31 @@
             </div>
             <div class="filter-buttons">
                 <div class="filter btn" data-filter="all">All Releases</div>
-                <div class="filter btn" data-filter=".adults">Adults</div>
-                <div class="filter btn" data-filter=".kids-teens">Kids &amp; Teens</div>
-                <div class="filter btn" data-filter=".video">Video</div>
-                <div class="filter btn" data-filter=".audio">Audio</div>
-                <div class="filter btn" data-filter=".books">Books</div>
-                <div class="filter btn" data-filter=".magazines">Magazines</div>
+                {% for book_category in book_categories %}                
+                <div class="filter btn" data-filter=".{{ book_category.category }}">{{ book_category.category }}</div>
+                {% endfor %}
             </div>
             <div id="category-filter">
                 <ul class="category-list">
-                    <li class="category-item adults">
+                    {% for recent_book in recent_books %}
+                    <li class="category-item {{ recent_book.related_category }}">
                         <figure>
-                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-01.jpg' %}" alt="New Releaase" />
-                            <figcaption class="bg-yellow">
+                            <img src="{{ recent_book.thumbnail.url }}" alt="New Releaase" />
+                            <figcaption class="{% cycle 'bg-light-green' 'bg-blue' %}">
                                 <div class="diamond">
                                     <i class="book"></i>
                                 </div>
                                 <div class="info-block">
-                                    <h4>The Great Gatsby</h4>
-                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    <h4>{{ recent_book.name }}</h4>
+                                    <span class="author"><strong>Author:</strong>  {{ recent_book.author }}</span>
+                                    <span class="author"><strong>Edition:</strong>  {{ recent_book.edition }}</span>
+                                    <p>{{ recent_book.short_summary }}</p>
+                                    <a href="{{ recent_book.get_absolute_url }}">Read More <i class="fa fa-long-arrow-right"></i></a>
                                 </div>
                             </figcaption>
                         </figure>
                     </li>
-                    <li class="category-item kids-teens">
-                        <figure>
-                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-02.jpg' %}" alt="New Releaase" />
-                            <figcaption class="bg-yellow">
-                                <div class="diamond">
-                                    <i class="book"></i>
-                                </div>
-                                <div class="info-block">
-                                    <h4>The Great Gatsby</h4>
-                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item video">
-                        <figure>
-                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-03.jpg' %}" alt="New Releaase" />
-                            <figcaption class="bg-blue">
-                                <div class="diamond">
-                                    <i class="book"></i>
-                                </div>
-                                <div class="info-block">
-                                    <h4>The Great Gatsby</h4>
-                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item audio">
-                        <figure>
-                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-04.jpg' %}" alt="New Releaase" />
-                            <figcaption class="bg-blue">
-                                <div class="diamond">
-                                    <i class="book"></i>
-                                </div>
-                                <div class="info-block">
-                                    <h4>The Great Gatsby</h4>
-                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item books">
-                        <figure>
-                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-05.jpg' %}" alt="New Releaase" />
-                            <figcaption class="bg-green">
-                                <div class="diamond">
-                                    <i class="book"></i>
-                                </div>
-                                <div class="info-block">
-                                    <h4>The Great Gatsby</h4>
-                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item magazines">
-                        <figure>
-                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-06.jpg' %}" alt="New Releaase" />
-                            <figcaption class="bg-red">
-                                <div class="diamond">
-                                    <i class="book"></i>
-                                </div>
-                                <div class="info-block">
-                                    <h4>The Great Gatsby</h4>
-                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item adults">
-                        <figure>
-                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-07.jpg' %}" alt="New Releaase" />
-                            <figcaption class="bg-red">
-                                <div class="diamond">
-                                    <i class="book"></i>
-                                </div>
-                                <div class="info-block">
-                                    <h4>The Great Gatsby</h4>
-                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item kids-teens">
-                        <figure>
-                            <img src="{% static 'images/category-filter/home-v2/category-filter-img-08.jpg' %}" alt="New Releaase" />
-                            <figcaption class="bg-light-green">
-                                <div class="diamond">
-                                    <i class="book"></i>
-                                </div>
-                                <div class="info-block">
-                                    <h4>The Great Gatsby</h4>
-                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
+                    {% endfor %}
                 </ul>
                 <div class="clearfix"></div>
             </div>
