@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Start: Page Banner -->
+<section class="page-banner services-banner">
+    <div class="container">
+        <div class="banner-header">
+            <h2>Search books</h2>
+            <span class="underline center"></span>
+            <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+        </div>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'Home:home' %}">Home</a></li>
+                <li><a href="{% url 'Books:books' %}">Books</a></li>
+                <li>Search-books</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- End: Page Banner -->
+
+<!-- Start: Products Section -->
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+            <div class="books-full-width">
+                <div class="container">
+                    <!-- Start: Search Section -->
+                    <section class="search-filters">
+                        <div class="container">
+                            <div class="filter-box">
+                                <h3>What are you looking for at the library?</h3>
+                                <form action="{% url 'Books:search-book' %}" method="GET">
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="keywords">Search by Keyword</label>
+                                            <input class="form-control" placeholder="Search by Keyword" id="keywords" name="q" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+                                            <select name="type" class="form-control">
+                                                <option>Books</option>
+                                                <option>Blogs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+                                            <select name="cat" id="category" class="form-control">
+                                                <option value="all-category">All Categories</option>
+                                                {% for category in categories %}
+                                                <option value="{{ category }}">{{ category }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="submit" value="Search">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End: Search Section -->
+
+                    <p class="result">Result page of books of <a href="#">{{ category }}</a> category and coantains {{ query }} keyword</p>
+                    <span id="word-to-highlight">{{ query }}</span>
+                    <div class="booksmedia-fullwidth">
+                        <ul>
+                        {% for book in books %}
+                            <li>
+                                <div class="book-list-icon yellow-icon"></div>
+                                <figure>
+                                    <a href="{{ book.get_absolute_url }}"><img src="{{ book.thumbnail.url }}" alt="Book"></a>
+                                    <figcaption>
+                                        <header>
+                                            <h4><a href="{{ book.get_absolute_url }}">{{ book.name }}</a></h4>
+                                            <p><strong>Author:</strong>  {{ book.author.get_full_name }}</p>
+                                            <p><strong>Edition:</strong>  {{ book.edition }}</p>
+                                        </header>
+                                        <p>{{ book.short_summary|truncatechars:185 }}</p>
+                                        <div class="actions">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add TO CART">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print">
+                                                        <i class="fa fa-print`"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </figcaption>
+                                </figure>                                                
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <nav class="navigation pagination text-center margin-top-bottom">
+                        <h2 class="screen-reader-text">Posts navigation</h2>
+                        <div class="nav-links">
+                            <a class="prev page-numbers" href="#."><i class="fa fa-long-arrow-left"></i> Previous</a>
+                            <a class="page-numbers current" href="#.">1</a>
+                            <span class="page-numbers">2</span>
+                            <a class="page-numbers" href="#.">3</a>
+                            <a class="page-numbers" href="#.">4</a>
+                            <a class="next page-numbers" href="#.">Next <i class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<!-- End: Products Section -->
+
+{% include 'social-media.html' %}
+
+{% endblock %}
