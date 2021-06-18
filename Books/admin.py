@@ -29,7 +29,7 @@ class BooksAdmin(admin.ModelAdmin):
 			'fields': ('short_summary', 'long_summary')
 		}),
         ('Related', {
-            'fields': ('related_tags',)
+            'fields': ('related_category',)
         })
     )
 
