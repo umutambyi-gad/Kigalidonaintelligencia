@@ -1,13 +1,18 @@
 from django.shortcuts import render
 from Contact.views import footerContacts
-from .models import Books
+from .models import (
+    Books,
+    Categories
+)
 
 
 # Create your views here.
 def books(request):
     books = Books.objects.all()
+    categories = Categories.objects.all()
     context = {
-        'books': books
+        'books': books,
+        'categories': categories
     }
     context = {**context, **footerContacts(request)}
     return render(request, 'books.html', context=context)
@@ -16,6 +21,36 @@ def bookSingle(request, book_id, book_title_slug):
     context = {}
     context = {**context, **footerContacts(request)}
     return render(request, 'book-single.html', context=context)
+
+def searchBook(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+        category = request.GET.get('cat')
+
+        result = ''
+
+        if category == 'all-category':
+            result = Books.search_book(
+                query=query
+            )
+        else:
+            result = Books.search_book_with_category(
+                category=category,
+                query=query
+            )
+
+    categories = Categories.objects.all()
+
+    context = {
+        'categories': categories,
+        'query': query,
+        'category': category,
+        'books': result
+    }
+
+    context = {**context, **footerContacts(request)}
+
+    return render(request, 'book-result-page.html', context=context)
 
 def newBook(request):
     context = {}
