@@ -19275,3 +19275,17 @@ a:focus {
 .blog-page.grid {
   margin-top: 25px !important;
 }
+
+#word-to-highlight {
+  display: none;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+}
+
+.result p {
+  font-weight: 600;
+  font-size: 20px;
+}

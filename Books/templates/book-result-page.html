@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block book-active %}active{% endblock %}
 {% block content %}
 
 <!-- Start: Page Banner -->
@@ -68,9 +69,9 @@
                     </section>
                     <!-- End: Search Section -->
 
-                    <p class="result">Result page of books of <a href="#">{{ category }}</a> category and coantains {{ query }} keyword</p>
                     <span id="word-to-highlight">{{ query }}</span>
                     <div class="booksmedia-fullwidth">
+                    <div class="result"><p>Result page of books of '<a href="#">{{ category }}</a>'' category and contains '{{ query }}' keyword</p></div>
                         <ul>
                         {% for book in books %}
                             <li>
