@@ -424,6 +424,8 @@ $(function () {
     });
     
     */
+    let hightlight = $('#word-to-highlight').text();
+    $(".booksmedia-fullwidth ul li").mark(hightlight);
 });
 
 $( window ).load(function() {
