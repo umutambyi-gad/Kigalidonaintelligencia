@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Start: Page Banner -->
+<section class="page-banner services-banner">
+    <div class="container">
+        <div class="banner-header">
+            <h2>Search blogs</h2>
+            <span class="underline center"></span>
+            <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+        </div>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'Home:home' %}">Home</a></li>
+                <li><a href="{% url 'Blogs:blogs' %}">Blogs</a></li>
+                <li>search-blogs</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- End: Page Banner -->
+
+
+
+<!-- Start: Blog Section -->
+<span class="word-to-highlight">{{ query }}</span>
+<div id="content" class="site-content margin-top-bottom">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+            <div class="blog-main-list">
+                <div class="container">
+                    <!-- Start: Search Section -->
+                    <section class="search-filters">
+                        <div class="container">
+                            <div class="filter-box">
+                                <h3>What are you looking for at the library?</h3>
+                                <form action="{% url 'Blogs:search-blog' %}" method="GET">
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="keywords">Search by Keyword</label>
+                                            <input class="form-control" placeholder="Search by Keyword" id="keywords" name="q" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+                                            <select name="type" class="form-control">
+                                                <option>Blogs</option>
+                                                <option>Books</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+                                            <select name="cat" id="category" class="form-control">
+                                                <option value="all-category">All Categories</option>
+                                                {% for category in categories %}
+                                                <option value="{{ category.category }}">{{ category.category }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="submit" value="Search">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End: Search Section -->
+                    <div class="row">
+                        <div class="blog-page grid">
+                        {% for blog in blogs %}
+                            <article>
+                                <div class="grid-item blog-item">
+                                    <div class="post-thumbnail">
+                                        <div class="post-date-box">
+                                            <div class="post-date">
+                                                <a class="date" href="#">{{ blog.added_date.day }}</a>
+                                            </div>
+                                            <div class="post-date-month">
+                                                <a class="month" href="#">{{ blog.added_date|date:'M' }}</a>
+                                            </div>
+                                        </div>
+                                        <a href="{{ blog.get_absolute_url }}"><img alt="{{ blog.title }}" src="{{ blog.thumbnail.url }}" /></a>
+                                        <div class="post-share">
+                                            <a href="#"><i class="fa fa-comment"></i> 37</a>
+                                            <a href="#"><i class="fa fa-eye"></i>{{ blog.views }}</a>
+                                        </div>
+                                    </div>
+                                    <div class="post-detail">
+                                        <header class="entry-header">
+                                            <div class="blog_meta_category">
+                                                <span class="arrow-right"></span>
+                                                {% for category in blog.related_categories.all %}
+                                                <a href="#" rel="category tag">{{ category }}</a>,
+                                                {% endfor %}
+                                            </div>
+                                            <h3 class="entry-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
+                                            <div class="entry-meta">
+                                                <span><i class="fa fa-user"></i> <a href="#">{{ blog.author.username }}</a></span>
+                                                <span><i class="fa fa-comment"></i> <a href="#">15 Comments</a></span>
+                                            </div>
+                                        </header>
+                                        <div class="entry-content">
+                                            <p>{{ blog.description|truncatechars:260 }}</p>
+                                        </div>
+                                        <footer class="entry-footer">
+                                            <a class="btn btn-default" href="{{ blog.get_absolute_url }}">Read More</a>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </article>
+                        {% endfor %}
+                        </div>
+                        <a href="#" id="loadmore">Load More</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<!-- End: Blog Section -->
+
+{% include 'social-media.html' %}
+
+{% endblock %}
