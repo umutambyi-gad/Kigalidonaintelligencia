@@ -19276,7 +19276,7 @@ a:focus {
   margin-top: 25px !important;
 }
 
-#word-to-highlight {
+.word-to-highlight {
   display: none;
 }
 
