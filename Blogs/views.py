@@ -1,16 +1,52 @@
 from django.shortcuts import render
 from Contact.views import footerContacts
-from .models import Blogs
+from .models import (
+    Blogs,
+    Categories
+)
 
 
 # Create your views here.
 def blogs(request):
     blogs = Blogs.objects.all()
+    categories = Categories.objects.all()
     context = {
-        'blogs': blogs
+        'blogs': blogs,
+        'categories': categories,
     }
     context = {**context, **footerContacts(request)}
     return render(request, 'blogs.html', context=context)
+
+def searchBlog(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+        category = request.GET.get('cat')
+
+        result = ''
+
+        if category == 'all-category':
+            result = Blogs.search_blog(
+                query=query
+            )
+        else:
+            result = Blogs.search_blog_with_category(
+                category=category,
+                query=query
+            )
+
+    categories = Categories.objects.all()
+
+    context = {
+        'query': query,
+        'category': category,
+        'categories': categories,
+        'blogs': result
+    }
+
+    context = {**context, **footerContacts(request)}
+
+    return render(request, 'blog-result-page.html', context=context)
+
 
 def blogSingle(request, blog_id, blog_title_slug):
     current_blog = Blogs.objects.get(pk=blog_id)
