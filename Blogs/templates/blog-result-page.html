@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block blog-active %}active{% endblock %}
 {% block content %}
 
 <!-- Start: Page Banner -->
@@ -70,7 +71,9 @@
                         </div>
                     </section>
                     <!-- End: Search Section -->
+                    <span class="word-to-highlight">{{ query }}</span>
                     <div class="row">
+                    <div class="result" style="margin: 15px 0 0 0;"><p>Result page of books of '<a href="#">{{ category }}</a>'' category and contains '{{ query }}' keyword</p></div>
                         <div class="blog-page grid">
                         {% for blog in blogs %}
                             <article>
