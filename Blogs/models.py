@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.query_utils import Q
 from django.template.defaultfilters import slugify
 from django.shortcuts import reverse
 
@@ -58,6 +59,29 @@ class Blogs(models.Model):
     
     def __str__(self):
         return self.title
+
+    @classmethod
+    def search_blog(cls, query):
+        result = cls.objects.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query) |
+            Q(author_comment__icontains=query) |
+            Q(content__icontains=query)
+        )
+
+        return result
+
+    @classmethod
+    def search_blog_with_category(cls, category, query):
+        result = cls.objects.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query) |
+            Q(author_comment__icontains=query) |
+            Q(content__icontains=query) |
+            Q(related_categories=Categories.objects.get(category=category))
+        )
+
+        return result
 
     class Meta:
         verbose_name_plural = 'Blogs'
