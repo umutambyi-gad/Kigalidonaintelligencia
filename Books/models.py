@@ -21,6 +21,7 @@ class Books(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     edition = models.CharField(max_length=255)
+    ISBN = models.CharField(max_length=255)
     publisher = models.CharField(max_length=255)
     thumbnail = models.ImageField(upload_to='media/books/images', null=True, blank=True)
     short_summary = models.TextField()
