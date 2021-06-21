@@ -5,6 +5,8 @@ from .models import (
 	TestimonyAdding
 )
 
+admin.site.site_header = 'Intelligencia Administration'
+admin.site.site_title = admin.site.site_header
 
 # Register your models here.
 class HomeBackgroundAdmin(admin.ModelAdmin):
