@@ -88,6 +88,9 @@ def login(request):
                 return redirect('/')
             else:
                 return redirect('/')
+    else:
+        return redirect('/')
+        
     context = {}
     context = {**context, **footerContacts(request)}
     return render(request, 'login.html', context=context)
