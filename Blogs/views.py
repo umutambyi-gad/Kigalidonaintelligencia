@@ -2,7 +2,8 @@ from django.shortcuts import render
 from Contact.views import footerContacts
 from .models import (
     Blogs,
-    Categories
+    Categories,
+    RootComments
 )
 
 
@@ -59,6 +60,17 @@ def blogSingle(request, blog_id, blog_title_slug):
     context = {
         'blog': current_blog,
     }
+
+    if request.method == 'POST':
+        commentor = request.POST['author']
+        comment = request.POST['comment']
+
+        RootComments.objects.create(
+            commentor=commentor,
+            comment=comment,
+            blog_id=blog_id
+        )
+
     context = {**context, **footerContacts(request)}
     return render(request, 'blog-single.html', context=context)
 
