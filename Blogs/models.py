@@ -94,8 +94,20 @@ class RootComments(models.Model):
     added_date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.blog.title
-	
+        return self.commentor
+
     class Meta:
         verbose_name_plural = 'Root Comments'
 
+
+class ReplyComments(models.Model):
+    reply_commentor = models.CharField(max_length=255)
+    reply_comment = models.TextField()
+    root_comment = models.ForeignKey(RootComments, on_delete=models.CASCADE)
+    added_date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.reply_commentor
+	
+    class Meta:
+        verbose_name_plural = 'Reply Comments'
