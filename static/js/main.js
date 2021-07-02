@@ -360,6 +360,19 @@ $(function () {
         infiniteLoop: true,
         shrinkItems: true
     });
+
+    /* function for ajax request */
+    function ajaxRequest(method, data, success) {
+        if (method.toUpperCase() == 'POST') {
+            data['csrfmiddlewaretoken'] = $('input[name=csrfmiddlewaretoken]').val();
+        }
+        $.ajax({
+            url: location.path,
+            type: method,
+            data: data,
+            success: success
+        });
+    }
     
     /*
 
@@ -424,10 +437,51 @@ $(function () {
     });
     
     */
+
+    /*
     let hightlight = $('.word-to-highlight').text();
     $(".booksmedia-fullwidth ul li").mark(hightlight);
     $(".post-detail .entry-title").mark(hightlight);
     $(".post-detail .entry-content").mark(hightlight);
+    */
+
+    $(window).on('load', () => sessionStorage.clear());
+
+    
+    $('.comment-reply-link').on('click', function() {
+        let id = $(this).attr('id').split(' ')[0];
+        let commentor = $(this).parents('.comment-body').find('.url').text().trim();
+        sessionStorage.setItem('root_comment_id', id);
+
+    });
+
+    $('#author').on('input', function(){
+        sessionStorage.setItem('commentor', $(this).val());
+    });
+
+    $('#comment').on('input', function(){
+        sessionStorage.setItem('comment', $(this).val());
+    });
+       
+    $('#submit').on('click', function(event) {
+        let id = sessionStorage.getItem('root_comment_id')? sessionStorage.getItem('root_comment_id'): 0;
+
+        let data = {
+            root_comment_id: Number(id),
+            commentor: sessionStorage.getItem('commentor'),
+            comment: sessionStorage.getItem('comment')
+        };
+
+        let success = response => {
+            console.log(response.result);
+            event.preventDefault();
+            /*sessionStorage.clear();
+            location.reload();*/
+        };
+
+        ajaxRequest('POST', data, success);
+    });
+
 });
 
 $( window ).load(function() {
