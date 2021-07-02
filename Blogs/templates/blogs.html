@@ -90,7 +90,7 @@
                                                 <a class="month" href="#">{{ blog.added_date|date:'M' }}</a>
                                             </div>
                                         </div>
-                                        <a href="{{ blog.get_absolute_url }}"><img alt="{{ blog.title }}" src="{{ blog.thumbnail.url }}" /></a>
+                                        <a href="{{ blog.get_absolute_url }}"><img style="height: 248px !important;" alt="{{ blog.title }}" src="{{ blog.thumbnail.url }}" /></a>
                                         <div class="post-share">
                                             <a href="#"><i class="fa fa-comment"></i> 37</a>
                                             <a href="#"><i class="fa fa-eye"></i>{{ blog.views }}</a>
@@ -121,7 +121,6 @@
                             </article>
                         {% endfor %}
                         </div>
-                        <a href="#" id="loadmore">Load More</a>
                     </div>
                 </div>
             </div>
