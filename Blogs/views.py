@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from Contact.views import footerContacts
+from django.http import JsonResponse
 from .models import (
     Blogs,
     Categories,
-    RootComments
+    RootComments,
+    ReplyComments
 )
 
 
@@ -58,18 +60,27 @@ def blogSingle(request, blog_id, blog_title_slug):
         current_blog.save()
 
     context = {
-        'blog': current_blog,
+        'blog': current_blog
     }
+    if request.is_ajax():
+        root_comment_id = request.POST['root_comment_id']
+        commentor = request.POST['reply_commentor']
+        comment = request.POST['reply_comment']
 
-    if request.method == 'POST':
-        commentor = request.POST['author']
-        comment = request.POST['comment']
-
-        RootComments.objects.create(
+        if root_comment_id != 0:
+            ReplyComments.objects.create(
+                reply_commentor=commentor,
+                reply_comment=comment,
+                root_comment_id=root_comment_id
+            )
+        else:
+            RootComments.objects.create(
             commentor=commentor,
             comment=comment,
             blog_id=blog_id
         )
+
+        return JsonResponse({'res': 'done'}, status=200)
 
     context = {**context, **footerContacts(request)}
     return render(request, 'blog-single.html', context=context)
