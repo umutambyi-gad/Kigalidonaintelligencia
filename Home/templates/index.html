@@ -171,7 +171,7 @@
                                                         <a class="month" href="#">{{ recent_blog.added_date|date:'M' }}</a>
                                                     </div>
                                                 </div>
-                                                <a href="{{ recent_blog.get_absolute_url }}"><img alt="blog" src="{{ recent_blog.thumbnail.url }}"></a>
+                                                <a href="{{ recent_blog.get_absolute_url }}"><img style="height: 248px !important;" alt="blog" src="{{ recent_blog.thumbnail.url }}"></a>
                                                 <div class="post-share">
                                                     <a href="#"><i class="fa fa-comment"></i> 37</a>
                                                     <a href="#"><i class="fa fa-eye"></i> {{ recent_blog.views }}</a>
@@ -202,6 +202,7 @@
                                     </article>
                                     {% endfor %}
                                 </div>
+                                <a href="{% url 'Blogs:blogs' %}" id="loadmore">See More</a>
                             </div>
                         </div>
                     </div>
@@ -226,7 +227,7 @@
                         {% for testimony in testimonies %}
                         <div class="single-testimonial-box">
                             <div class="top-portion">
-                                <img src="{{ testimony.author_image.url }}" alt="Testimonial Image" />
+                                <img src="{{ testimony.author_image.url }}" alt="Testimonial Image" style="height:252px !important; width:170px !important;" />
                                 <div class="user-comment">
                                     <div class="arrow-left"></div>
                                     <blockquote cite="#">
@@ -237,7 +238,7 @@
                             </div>
                             <div class="bottom-portion">
                                 <a href="#" class="author">
-                                    {{ testimony.author_name }} <small>(Student )</small>
+                                    {{ testimony.author_name }}
                                 </a>
                                 {% if testimony.linkedin_profile or testimony.facebook_profile or  testimony.twitter_profile or testimony.instagram_profile %}
                                 <div class="social-share-links">
@@ -277,7 +278,7 @@
         <span class="underline center"></span>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <div class="row">
-            <form name="" action="{% url 'Home:home' %}" method="POST">
+            <form name="" action="{% url 'Home:home' %}" enctype="multipart/form-data" method="POST">
             {% csrf_token %}
                 <div class="col-md-6">
                     <div class="col-md-6 col-sm-6">
