@@ -473,10 +473,8 @@ $(function () {
         };
 
         let success = response => {
-            console.log(response.result);
-            event.preventDefault();
-            /*sessionStorage.clear();
-            location.reload();*/
+            sessionStorage.clear();
+            location.reload();
         };
 
         ajaxRequest('POST', data, success);

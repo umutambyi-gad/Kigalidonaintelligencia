@@ -62,25 +62,24 @@ def blogSingle(request, blog_id, blog_title_slug):
     context = {
         'blog': current_blog
     }
-    if request.is_ajax():
-        root_comment_id = request.POST['root_comment_id']
-        commentor = request.POST['reply_commentor']
-        comment = request.POST['reply_comment']
 
-        if root_comment_id != 0:
+    if request.is_ajax():
+        root_comment_id = int(request.POST['root_comment_id'])
+        commentor = request.POST['commentor']
+        comment = request.POST['comment']
+
+        if root_comment_id == 0:
+            RootComments.objects.create(
+                commentor=commentor,
+                comment=comment,
+                blog_id=blog_id
+            )
+        else:
             ReplyComments.objects.create(
                 reply_commentor=commentor,
                 reply_comment=comment,
                 root_comment_id=root_comment_id
             )
-        else:
-            RootComments.objects.create(
-            commentor=commentor,
-            comment=comment,
-            blog_id=blog_id
-        )
-
-        return JsonResponse({'res': 'done'}, status=200)
 
     context = {**context, **footerContacts(request)}
     return render(request, 'blog-single.html', context=context)
