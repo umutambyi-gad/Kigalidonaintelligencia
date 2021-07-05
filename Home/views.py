@@ -31,10 +31,10 @@ def home(request):
         
         if author_image not in ('', None):
             TestimonyAdding.objects.create(
-                author_names=author_names, 
+                author_name=author_names,
                 author_email=author_email,
                 author_image=author_image,
-                author_testimony=author_testimony,
+                testimony=author_testimony,
                 linkedin_profile=linkedin_profile,
                 facebook_profile=facebook_profile,
                 twitter_profile=twitter_profile,
@@ -42,9 +42,9 @@ def home(request):
             )
         else:
             TestimonyAdding.objects.create(
-                author_names=author_names, 
+                author_name=author_names,
                 author_email=author_email,
-                author_testimony=author_testimony,
+                testimony=author_testimony,
                 linkedin_profile=linkedin_profile,
                 facebook_profile=facebook_profile,
                 twitter_profile=twitter_profile,
