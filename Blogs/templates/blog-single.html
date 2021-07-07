@@ -98,7 +98,7 @@
                                         <div class="post-detail">
                                             <div class="post-detail-head">
                                                 <div class="post-share">
-                                                    <a href="#"><i class="fa fa-comment"></i> 37 Comments</a>
+                                                    <a href="#"><i class="fa fa-comment"></i> {{ blog.rootcomments_set.all.count | add:blog.replycomments_set.all.count }} Comments</a>
                                                     <a href="#"><i class="fa fa-eye"></i> {{ blog.views }} Viewed</a>
                                                 </div>
                                                 <div class="post-social-share">
