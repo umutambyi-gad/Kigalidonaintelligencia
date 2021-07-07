@@ -78,7 +78,8 @@ def blogSingle(request, blog_id, blog_title_slug):
             ReplyComments.objects.create(
                 reply_commentor=commentor,
                 reply_comment=comment,
-                root_comment_id=root_comment_id
+                root_comment_id=root_comment_id,
+                blog_id=blog_id
             )
 
     context = {**context, **footerContacts(request)}
