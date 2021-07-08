@@ -24,10 +24,10 @@ class Books(models.Model):
     ISBN = models.CharField(max_length=255)
     publisher = models.CharField(max_length=255)
     thumbnail = models.ImageField(upload_to='media/books/images', null=True, blank=True)
-    short_summary = models.TextField()
-    long_summary = models.TextField()
+    summary = models.TextField()
     related_category = models.OneToOneField(Categories, on_delete=models.CASCADE)
     views = models.IntegerField(default=0)
+    book_link = models.CharField(max_length=500, null=True, blank=True)
     added_date = models.DateTimeField(auto_now_add=True)
 
     def slug(self):
@@ -40,6 +40,11 @@ class Books(models.Model):
     def recent_books(cls):
         recents = cls.objects.order_by('-added_date')
         return recents[:9]
+
+    @classmethod
+    def popular_books(cls):
+        books = cls.objects.order_by('-views')
+        return books
 
     @classmethod
     def search_book(cls, query):
