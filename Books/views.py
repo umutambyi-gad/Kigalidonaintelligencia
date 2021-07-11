@@ -17,10 +17,25 @@ def books(request):
     context = {**context, **footerContacts(request)}
     return render(request, 'books.html', context=context)
 
+
 def bookSingle(request, book_id, book_title_slug):
-    context = {}
+    book = Books.objects.get(pk=book_id)
+    recent_books = Books.recent_books()
+    popular_books = Books.popular_books()
+
+    if request.method == 'GET':
+        views = book.views + 1
+        book.views = views
+        book.save()
+
+    context = {
+        'popular_books': popular_books,
+        'recent_books': recent_books,
+        'book': book
+    }
     context = {**context, **footerContacts(request)}
     return render(request, 'book-single.html', context=context)
+
 
 def searchBook(request):
     if request.method == 'GET':
@@ -51,6 +66,7 @@ def searchBook(request):
     context = {**context, **footerContacts(request)}
 
     return render(request, 'book-result-page.html', context=context)
+
 
 def newBook(request):
     context = {}
