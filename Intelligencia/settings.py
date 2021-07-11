@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'AboutUs.apps.AboutusConfig',
     'Books.apps.BooksConfig',
     'Blogs.apps.BlogsConfig',
-    'Contact.apps.ContactConfig'
+    'Contact.apps.ContactConfig',
+    'admin_reorder',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder',
 ]
 
 ROOT_URLCONF = 'Intelligencia.urls'
@@ -157,3 +159,51 @@ STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ADMIN_REORDER = (
+    {
+        'app': 'auth',
+        'models': (
+            'auth.User',
+            'auth.Group',
+        )
+    },
+    {
+        'app': 'Home',
+        'models': (
+            'Home.HomeBackground',
+            'Home.HomeWelcoming',
+            'Home.TestimonyAdding',
+        )
+    },
+    {
+        'app': 'AboutUs',
+        'models': (
+            'AboutUs.AboutUs',
+        )
+    },
+    {
+        'app': 'Books',
+        'models': (
+            'Books.Books',
+            'Books.Categories',
+        )
+    },
+    {
+        'app': 'Blogs',
+        'models': (
+            'Blogs.Blogs',
+            'Blogs.Categories',
+            'Blogs.Tags',
+            'Blogs.RootComments',
+            'Blogs.ReplyComments',
+        )
+    },
+    {
+        'app': 'Contact',
+        'models': (
+            'Contact.Contact',
+            'Contact.SocialMedia',
+        )
+    },
+)
