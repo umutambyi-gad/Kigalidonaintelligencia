@@ -74,16 +74,26 @@
                                 <div class="single-book-box">                                                
                                     <div class="post-thumbnail">
                                         <div class="book-list-icon yellow-icon"></div>
-                                        <img alt="Book" src="{% static 'images/books-media/list-view/book-media-01.jpg' %}" />                                                    
+                                        <img alt="Book" src="{{ book.thumbnail.url }}" />
                                     </div>
                                     <div class="post-detail">
                                         <div class="books-social-sharing">
                                             <ul>
-                                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                                <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
-                                                <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                                {% if social_media.facebook_profile %}
+                                                <li><a href="https://www.facebook.com/{{ social_media.facebook_profile }}" target="_blank"><i class="fa fa-facebook" target="_blank"></i></a></li>
+                                                {% endif %}
+                                                {% if social_media.twitter_profile %}
+                                                <li><a href="https://twitter.com/{{ social_media.twitter_profile }}" target="_blank"><i class="fa fa-twitter" target="_blank"></i></a></li>
+                                                {% endif %}
+                                                {% if social_media.instagram_profile %}
+                                                <li><a href="https://www.instagram.com/{{ social_media.instagram_profile }}" target="_blank"><i class="fa fa-instagram" target="_blank"></i></a></li>
+                                                {% endif %}
+                                                {% if social_media.linkedin_profile %}
+                                                <li><a href="https://linkedin.com/in/{{ social_media.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                                {% endif %}
+                                                {% if social_media.youtube_profile %}
+                                                <li><a href="https://www.youtube.com/channel/{{ social_media.youtube_profile }}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                                {% endif %}
                                             </ul>
                                         </div>
                                         <div class="optional-links">
@@ -111,12 +121,12 @@
                                             </ul>
                                         </div>
                                         <header class="entry-header">
-                                            <h2 class="entry-title">The Great Gatsby</h2>
+                                            <h2 class="entry-title">{{ book.name }}</h2>
                                             <ul>
-                                                <li><strong>Author:</strong> F. Scott Fitzgerald</li>
-                                                <li><strong>ISBN:</strong> 9781581573268</li>
-                                                <li><strong>Edition:</strong> First edition</li>
-                                                <li><strong>Publisher:</strong> New York : Shaye Areheart Books, c2008</li>
+                                                <li><strong>Author:</strong> {{ book.author }}</li>
+                                                <li><strong>ISBN:</strong> {{ book.ISBN }}</li>
+                                                <li><strong>Edition:</strong> {{ book.edition }}</li>
+                                                <li><strong>Publisher:</strong> {{ book.publisher }}</li>
                                             </ul>
                                         </header>
                                         <div class="entry-content post-buttons">
@@ -126,200 +136,58 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p><strong>Summary:</strong> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. </p>
-                                <ul class="detail-page-listing">
-                                    <li><strong>Length:</strong> 518 pages.</li>
-                                    <li><strong>Format:</strong> DVD</li>
-                                    <li><strong>Language Note:</strong> Icelandic dialogue; English subtitles.</li>
-                                    <li><strong>Genre :</strong> Feature films, Fiction films, Drama</li>
-                                    <li><strong>Topics:</strong> Friendship, Bullies, Pranks, School</li>
-                                    <li><strong>Time Period:</strong> 2000s -- 21st century</li>
-                                </ul>
-                                <div class="table-tabs" id="responsiveTabs">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active"><b class="arrow-up"></b><a data-toggle="tab" href="#sectionA">Copies: 05</a></li>
-                                        <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionB">Reviews (12)</a></li>
-                                        <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionC">Table of Contents</a></li>
-                                        <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionD">Novelist Recommendations</a></li> 
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div id="sectionA" class="tab-pane fade in active">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Library Name</th>
-                                                        <th>Shelf Number</th>
-                                                        <th>Material Type</th>
-                                                        <th>Status </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Oak Park Public Library Main Branch</td>
-                                                        <td>B PURMORT</td>
-                                                        <td>Book</td>
-                                                        <td>In Processing</td>                                                                    
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bedford Park Public Library District</td>
-                                                        <td>616.99 PUR</td>
-                                                        <td>Book</td>
-                                                        <td>Due 8/24/16</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Blue Island Public Library</td>
-                                                        <td>BIO PUR</td>
-                                                        <td>eBook</td>
-                                                        <td>Due 8/24/16</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bridgeview Public Library</td>
-                                                        <td>B PUR</td>
-                                                        <td>DVD</td>
-                                                        <td>In Processing</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Eisenhower Public Library District</td>
-                                                        <td>616.994 PUR</td>
-                                                        <td>Magazine</td>
-                                                        <td>Checked In</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Forest Park Public Library</td>
-                                                        <td>BIO PURMORT</td>
-                                                        <td>Magazine</td>
-                                                        <td>Checked In</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Hinsdale Public Library</td>
-                                                        <td>B PUR</td>
-                                                        <td>Audio</td>
-                                                        <td>Checked In</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Oak Park Public Library Maze Branch</td>
-                                                        <td>616.99 PUR</td>
-                                                        <td>Audio</td>
-                                                        <td>Due 9/10/16</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>River Grove Public Library District</td>
-                                                        <td>616.994 PURMORT</td>
-                                                        <td>Book</td>
-                                                        <td>Due 9/10/16</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div id="sectionB" class="tab-pane fade in">
-                                            <h5>Lorem Ipsum Dolor</h5>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
-                                        </div>
-                                        <div id="sectionC" class="tab-pane fade in">
-                                            <h5>Lorem Ipsum Dolor</h5>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
-                                        </div>
-                                        <div id="sectionD" class="tab-pane fade in">
-                                            <h5>Lorem Ipsum Dolor</h5>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
-                                        </div>                                                    
-                                        <div id="sectionE" class="tab-pane fade in">
-                                            <h5>Lorem Ipsum Dolor</h5>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
-                                        </div>                                                    
-                                        <div id="sectionF" class="tab-pane fade in">
-                                            <h5>Lorem Ipsum Dolor</h5>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p>
+                                    <strong>Summary:</strong>
+                                    {{ book.summary | safe }}
+                                 </p>
+                                
                                 <div class="booksmedia-fullwidth booksmedia-popular-list">
-                                    <h2 class="section-title text-center">Popular Items</h2>
+                                    <h2 class="section-title text-center">Popular Books</h2>
                                     <span class="underline center"></span>
                                     <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     <ul class="popular-items-detail-v1">
-                                        <li>
-                                            <div class="book-list-icon blue-icon"></div>
-                                            <figure>
-                                                <img src="{% static 'images/books-media/layout-3/books-media-layout3-01.jpg' %}" alt="Book">
-                                                <figcaption>
-                                                    <header>
-                                                        <h4><a href="#.">The Great Gatsby</a></h4>
-                                                        <p><strong>Author:</strong>  F. Scott Fitzgerald</p>
-                                                        <p><strong>ISBN:</strong>  9781581573268</p>
-                                                    </header>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                                </figcaption>
-                                            </figure>                                                
-                                        </li>
+                                        {% for popular_book in popular_books %}
                                         <li>
                                             <div class="book-list-icon yellow-icon"></div>
                                             <figure>
-                                                <img src="{% static 'images/books-media/layout-3/books-media-layout3-02.jpg' %}" alt="Book">
+                                                <img src="{{ popular_book.thumbnail.url }}" alt="Book">
                                                 <figcaption>
                                                     <header>
-                                                        <h4><a href="#.">The Great Gatsby</a></h4>
-                                                        <p><strong>Author:</strong>  F. Scott Fitzgerald</p>
-                                                        <p><strong>ISBN:</strong>  9781581573268</p>
+                                                        <h4><a href="{{ popular_book.get_absolute_url }}">{{ popular_book.name }}</a></h4>
+                                                        <p><strong>Author:</strong>  {{ popular_book.author }}</p>
+                                                        <p><strong>ISBN:</strong>  {{ popular_book.ISBN }}</p>
                                                     </header>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                                    <a href="{{ popular_book.get_absolute_url }}">
+                                                        <p> {{ popular_book.summary|truncatechars:185 | safe }} </p>
+                                                    </a>
+                                                    <div class="actions">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart">
+                                                                    <i class="fa fa-shopping-cart"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like">
+                                                                    <i class="fa fa-heart"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail">
+                                                                    <i class="fa fa-envelope"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print">
+                                                                    <i class="fa fa-print"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </figcaption>
                                             </figure>                                                
                                         </li>
-                                        <li>
-                                            <div class="book-list-icon green-icon"></div>
-                                            <figure>
-                                                <img src="{% static 'images/books-media/layout-3/books-media-layout3-03.jpg' %}" alt="Book">
-                                                <figcaption>
-                                                    <header>
-                                                        <h4><a href="#.">The Great Gatsby</a></h4>
-                                                        <p><strong>Author:</strong>  F. Scott Fitzgerald</p>
-                                                        <p><strong>ISBN:</strong>  9781581573268</p>
-                                                    </header>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                                    
-                                                </figcaption>
-                                            </figure>                                                
-                                        </li>
-                                        <li>
-                                            <div class="book-list-icon yellow-icon"></div>
-                                            <figure>
-                                                <img src="{% static 'images/books-media/layout-3/books-media-layout3-01.jpg' %}" alt="Book">
-                                                <figcaption>
-                                                    <header>
-                                                        <h4><a href="#.">The Great Gatsby</a></h4>
-                                                        <p><strong>Author:</strong>  F. Scott Fitzgerald</p>
-                                                    </header>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                                </figcaption>
-                                            </figure>                                                
-                                        </li>
-                                        <li>
-                                            <div class="book-list-icon yellow-icon"></div>
-                                            <figure>
-                                                <img src="{% static 'images/books-media/layout-3/books-media-layout3-02.jpg' %}" alt="Book">
-                                                <figcaption>
-                                                    <header>
-                                                        <h4><a href="#.">The Great Gatsby</a></h4>
-                                                        <p><strong>Author:</strong>  F. Scott Fitzgerald</p>
-                                                    </header>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                                </figcaption>
-                                            </figure>                                                
-                                        </li>
-                                        <li>
-                                            <div class="book-list-icon green-icon"></div>
-                                            <figure>
-                                                <img src="{% static 'images/books-media/layout-3/books-media-layout3-03.jpg' %}" alt="Book">
-                                                <figcaption>
-                                                    <header>
-                                                        <h4><a href="#.">The Great Gatsby</a></h4>
-                                                        <p><strong>Author:</strong>  F. Scott Fitzgerald</p>
-                                                    </header>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                                </figcaption>
-                                            </figure>                                                
-                                        </li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
@@ -327,32 +195,22 @@
                         <div class="col-md-3 col-md-pull-9">
                             <aside id="secondary" class="sidebar widget-area" data-accordion-group>
                                 <div class="widget widget_recent_entries">
-                                    <h4 class="widget-title">On-Order Items</h4>
+                                    <h4 class="widget-title">Recent books</h4>
                                     <ul>
+                                        {% for recent_book in recent_books %}
                                         <li>
-                                            <figure>
-                                                <img src="{% static 'images/order-item-01.jpg' %}" alt="product" />
-                                            </figure>
-                                            <a href="#">The Sonic Boom</a>
-                                            <span class="price"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                            <div class="clearfix"></div>
+                                            <a href="{{ recent_book.get_absolute_url }}">
+                                                <figure>
+                                                    <img src="{{ recent_book.thumbnail.url }}" alt="product" style="width: 75px !important;" />
+                                                </figure>
+                                                <a href="#">{{ recent_book.name }}</a>
+                                                <span><strong>Author:</strong> {{ recent_book.author }}</span>
+                                                <span><strong>Edition:</strong> {{ recent_book.edition }}</span>
+                                                <span><strong>ISBN:</strong>  {{ recent_book.ISBN }}</span>
+                                                <div class="clearfix"></div>
+                                            </a>
                                         </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'images/order-item-02.jpg' %}" alt="product" />
-                                            </figure>
-                                            <a href="#">The Sonic Boom</a>
-                                            <span class="price"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'images/order-item-03.jpg' %}" alt="product" />
-                                            </figure>
-                                            <a href="#">The Sonic Boom</a>
-                                            <span class="price"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                            <div class="clearfix"></div>
-                                        </li>
+                                        {% endfor %}
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>

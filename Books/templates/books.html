@@ -88,12 +88,24 @@
                                             <p><strong>Author:</strong>  {{ book.author.get_full_name }}</p>
                                             <p><strong>Edition:</strong>  {{ book.edition }}</p>
                                         </header>
-                                        <p>{{ book.short_summary|truncatechars:185 }}</p>
+                                        <a href="{{ book.get_absolute_url }}">
+                                            <p>{{ book.summary|truncatechars:185 | safe }}</p>
+                                        </a>
                                         <div class="actions">
                                             <ul>
                                                 <li>
-                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add TO CART">
+                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart">
                                                         <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like">
+                                                        <i class="fa fa-heart"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail">
+                                                        <i class="fa fa-envelope"></i>
                                                     </a>
                                                 </li>
                                                 <li>
