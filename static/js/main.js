@@ -438,12 +438,10 @@ $(function () {
     
     */
 
-    /*
     let hightlight = $('.word-to-highlight').text();
     $(".booksmedia-fullwidth ul li").mark(hightlight);
     $(".post-detail .entry-title").mark(hightlight);
     $(".post-detail .entry-content").mark(hightlight);
-    */
 
     $(window).on('load', () => sessionStorage.clear());
 
