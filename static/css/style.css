@@ -7384,7 +7384,6 @@ th {
 .owl-carousel .owl-stage,
 .owl-carousel-event .owl-stage {
   position: relative;
-  -ms-touch-action: pan-Y;
 }
 .owl-carousel .owl-stage::after,
 .owl-carousel-event .owl-stage::after {
@@ -7411,7 +7410,6 @@ th {
   float: left;
   position: relative;
   padding-bottom: 15px;
-  -webkit-backface-visibility: hidden;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
@@ -12049,7 +12047,7 @@ a:focus {
   margin: 0 0 6px;
 }
 .layout-v2 .category-filter .category-list .category-item figcaption {
-  background-color: rgba(132, 187, 69, 0.9);
+  background-color: #062170eb;
   bottom: 0;
   -moz-opacity: 1;
   -khtml-opacity: 1;
@@ -12072,7 +12070,7 @@ a:focus {
   background-color: inherit;
 }
 .layout-v2 .category-filter .category-list .category-item figcaption.bg-blue {
-  background-color: rgba(0, 173, 239, 0.9);
+  background-color: #3366ffe6;
 }
 .layout-v2 .category-filter .category-list .category-item figcaption.bg-blue .diamond {
   background-color: inherit;
@@ -12090,7 +12088,7 @@ a:focus {
   background-color: inherit;
 }
 .layout-v2 .category-filter .category-list .category-item figcaption.bg-light-green {
-  background-color: rgba(132, 187, 69, 0.9);
+  background-color: #062170eb;
 }
 .layout-v2 .category-filter .category-list .category-item figcaption.bg-light-green .diamond {
   background-color: inherit;
@@ -13695,7 +13693,6 @@ a:focus {
 .page-banner .banner-header {
   display: block;
   padding-top: 110px;
-  vertical-align: middle;
   position: relative;
   z-index: 10;
 }
@@ -14582,7 +14579,6 @@ a:focus {
 }
 .lost_password {
   display: inline-block;
-  float: right;
   text-align: right;
 }
 .lost_password a:hover {
@@ -17287,7 +17283,6 @@ a:focus {
 }
 .detailed-box .post-thumbnail {
   display: inline-block;
-  float: left;
   margin: 0 -15px;
   position: relative;
   padding: 0;
@@ -17460,7 +17455,6 @@ a:focus {
   border-right: 1px solid #eeeeee;
   color: #707070;
   display: inline-block;
-  float: left;
   font-size: 12px;
   line-height: 12px;
   padding: 18px 20px;
@@ -17656,10 +17650,6 @@ a:focus {
 }
 .blog-page .post-social-share ul li a span {
   display: inline-block;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
   font-size: 0;
 }
 .blog-page .post-social-share ul li a:hover {
@@ -17965,7 +17955,6 @@ a:focus {
 }
 .about-author .author-content {
   display: inline-block;
-  float: left;
   width: 83%;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -18194,7 +18183,6 @@ a:focus {
 .comment-respond .comment-form-email,
 .comment-respond .comment-form-subject {
   display: inline-block;
-  float: left;
   padding: 0 15px;
   width: 33.3333%;
 }
