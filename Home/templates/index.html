@@ -9,7 +9,7 @@
         {% for content in home_background %}
         <div class="item {% if content.id == 5 %}active{% endif %}">
             <figure>
-                <img alt="Home Slide" src="{{ content.image.url }}" />
+                <img alt="Home Slide" src="{{ content.image.url }}" loading="lazy" />
             </figure>
             <div class="container">
                 <div class="carousel-caption">
@@ -92,7 +92,7 @@
             </div>
             <div class="col-md-6">
                 <div class="welcome-image">
-                    <img src="{{ home_welcoming.image.url }}" class="algin-right" alt="" />
+                    <img src="{{ home_welcoming.image.url }}" class="algin-right" alt="" loading="lazy"/>
                 </div>
             </div>
         </div>
@@ -228,7 +228,7 @@
                         {% for testimony in testimonies %}
                         <div class="single-testimonial-box">
                             <div class="top-portion">
-                                <img src="{{ testimony.author_image.url }}" alt="Testimonial Image" style="height:252px !important; width:170px !important;" />
+                                <img src="{{ testimony.author_image.url }}" alt="Testimonial Image" style="height:252px !important; width:170px !important;" loading="lazy"/>
                                 <div class="user-comment">
                                     <div class="arrow-left"></div>
                                     <blockquote cite="#">
