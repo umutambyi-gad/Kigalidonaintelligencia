@@ -13661,7 +13661,6 @@ a:focus {
   }
 }
 .page-banner::before {
-  background: rgba(0, 0, 0, 0.8);
   content: "";
   height: 100%;
   left: 0;
