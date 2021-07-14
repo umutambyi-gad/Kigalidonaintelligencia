@@ -23,7 +23,7 @@ class Books(models.Model):
     edition = models.CharField(max_length=255)
     ISBN = models.CharField(max_length=255)
     publisher = models.CharField(max_length=255)
-    thumbnail = models.ImageField(upload_to='media/books/images', null=True, blank=True)
+    thumbnail = models.ImageField(upload_to='books/images', null=True, blank=True)
     summary = models.TextField()
     related_category = models.OneToOneField(Categories, on_delete=models.CASCADE)
     views = models.IntegerField(default=0)
