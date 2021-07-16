@@ -1,0 +1,1 @@
+web: gunicorn Intelligencia.wsgi --log-file -

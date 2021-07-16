@@ -9,12 +9,16 @@
 
         <!-- Title -->
         <title></title>
+
         <!-- Favicon -->
         <link href="{% static 'images/logo.png' %}" rel="icon" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
-        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" integrity="sha512-TECBPTD5Db97nlsJ/gGBBv9JLXg172YcGtrl/HHM4x9W++PPKEpHs61ogVd4x2omTgST1dIHoy2HeYWZzcZzHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
         <!-- Mobile Menu -->
         <link href="{% static 'css/mmenu.css' %}" rel="stylesheet" type="text/css" />
@@ -29,6 +33,7 @@
         <script src="{% static 'js/html5shiv.min.js' %}"></script>
         <script src="{% static 'js/respond.min.js' %}"></script>
         <![endif]-->
+        
     </head>
     <body class="layout-v2">
         <!-- Start: Header Section -->
@@ -175,32 +180,42 @@
             </div>
         </footer>
         <!-- End: Footer -->
+
         <!-- jQuery Latest Version 1.x -->
-        <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         
         <!-- jQuery UI -->
-        <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         
         <!-- jQuery Easing -->
-        <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha512-ahmSZKApTDNd3gVuqL5TQ3MBTj8tL5p2tYV05Xxzcfu6/ecvt1A0j6tfudSGBVuteSoTRMqMljbfdU0g2eDNUA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!-- Bootstrap -->
-        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         
+        <!-- Waypoints - Load Elements on View -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js" integrity="sha512-kIRDPWIBoKpF79HJv3xBPQgZKjhxzqMGG2N68svvId45w9vp/hTXoR7cDERYhVEhLJTuSGb/c3+ZHgeQfLm0Hg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        <!-- Masonry -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js" integrity="sha512-coKEwkkVJR6lO1aL/rJeVFojNKG1DRNbAfuxcvFC98W9TYBO9TQIVFXiHBBx6dRL9+effSNEYIr/5vLe5HENVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>        
+        
+        <!-- bxSlider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.0/jquery.bxslider.min.js" integrity="sha512-BG+vCQOiR39q85kV710ltCcT2MXdzyYIrO7DccoNUnvM97SXWhXTKdMGX7FOHG3Yjm78IggAzDAhA5GeQ4HHOw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        <!-- Mark js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- MixItUp - Category Filter -->
+        <script type="text/javascript" src="{% static 'js/mixitup.min.js' %}"></script>
+
         <!-- Mobile Menu -->
         <script type="text/javascript" src="{% static 'js/mmenu.min.js' %}"></script>
         
         <!-- Harvey - State manager for media queries -->
         <script type="text/javascript" src="{% static 'js/harvey.min.js' %}"></script>
-        
-        <!-- Waypoints - Load Elements on View -->
-        <script type="text/javascript" src="{% static 'js/waypoints.min.js' %}"></script>
 
         <!-- Facts Counter -->
         <script type="text/javascript" src="{% static 'js/facts.counter.min.js' %}"></script>
-
-        <!-- MixItUp - Category Filter -->
-        <script type="text/javascript" src="{% static 'js/mixitup.min.js' %}"></script>
 
         <!-- Owl Carousel -->
         <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
@@ -213,20 +228,12 @@
         
         <!-- Responsive Table -->
         <script type="text/javascript" src="{% static 'js/responsive.table.min.js' %}"></script>
-        
-        <!-- Masonry -->
-        <script type="text/javascript" src="{% static 'js/masonry.min.js' %}"></script>
-        
+
         <!-- Carousel Swipe -->
         <script type="text/javascript" src="{% static 'js/carousel.swipe.min.js' %}"></script>
-        
-        <!-- bxSlider -->
-        <script type="text/javascript" src="{% static 'js/bxslider.min.js' %}"></script>
-        
+
         <!-- Custom Scripts -->
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-
-        <!-- Mark js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
     </body>
 </html>
