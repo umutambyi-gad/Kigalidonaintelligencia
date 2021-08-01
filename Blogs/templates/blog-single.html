@@ -3,6 +3,14 @@
 
 {% block title %}{{ blog.title }} By {{ blog.author.get_full_name }}{% endblock %}
 
+{% block metas %}
+
+<meta name="author" content="Umutambyi Gad" />
+<meta name="keywords" content="{{ blog.author.get_full_name }}, Kinyarwanda Book, {{ blog.title }}" />
+<meta name="description" content="Blog - {{ blog.title }} By {{ blog.author.get_full_name }}" />
+
+{% endblock %}
+
 {% block blog-active %}active{% endblock %}
 
 {% block content %}
