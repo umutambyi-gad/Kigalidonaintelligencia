@@ -57,58 +57,43 @@
                             <div class="company-image" style="background-image: url('{{ about_us.image.url }}') "></div>
                         </div>
                     </section>
-                    <!-- Start: Our Partners Section -->
-                    <section class="community-testimonial">
+                    <!-- Start: Testimonials Section -->
+                    <section class="testimonials">
                         <div class="container">
-                            <div class="text-center">
-                                <h2 class="section-title">Words From our Community</h2>
-                                <span class="underline center"></span>
-                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="owl-carousel">
-                                {% for testimony in testimonies %}
-                                <div class="single-testimonial-box">
-                                    <div class="top-portion">
-                                        <img src="{{ testimony.author_image.url }}" alt="Testimonial Image" style="height:252px !important; width:170px !important;" loading="lazy"/>
-                                        <div class="user-comment">
-                                            <div class="arrow-left"></div>
-                                            <blockquote cite="#">
-                                                {{ testimony.testimony }}
-                                            </blockquote>
+                            <h3 class="section-title">Words From our Community</h3>
+                            <span class="underline center"></span>
+                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="row">
+                                <div class="col-md-12" data-wow-delay="0.2s">
+                                    <div class="carousel slide" data-interval="false" data-ride="carousel" id="testimonials">
+                                        <!-- Carousel Slides / Quotes -->
+                                        <div class="carousel-inner text-center">
+                                            <!-- Quote -->
+                                            {% for testimony in testimonies %}
+                                            <div class="item {% if forloop.first %}active{% endif %}">
+                                                <figure>
+                                                    <img src="{{ testimony.author_image.url }}" alt="testimonials"/>
+                                                    <figcaption>
+                                                        <div class="client-name">{{ testimony.author_name }}</div>
+                                                        <div class="designation">testimony author</div>
+                                                    </figcaption>
+                                                </figure>
+                                                <p>{{ testimony.testimony }}</p>
+                                            </div>
+                                            {% endfor %}
+                                            <!-- Carousel indicators -->
+                                            <ol class="carousel-indicators">
+                                                {% for testimony in testimonies %}
+                                                <li data-target="#testimonials" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+                                                {% endfor %}
+                                            </ol>
                                         </div>
-                                        <div class="clear"></div>
                                     </div>
-                                    <div class="bottom-portion">
-                                        <a href="#" class="author">
-                                            {{ testimony.author_name }}
-                                        </a>
-                                        {% if testimony.linkedin_profile or testimony.facebook_profile or  testimony.twitter_profile or testimony.instagram_profile %}
-                                        <div class="social-share-links">
-                                            <ul>
-                                                {% if testimony.linkedin_profile %}
-                                                <li><a href="https://linkedin.com/in/{{ testimony.linkedin_profile }}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                                {% endif %}
-                                                {% if testimony.facebook_profile %}
-                                                <li><a href="https://facebook.com/{{ testimony.facebook_profile }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                                {% endif %}
-                                                {% if testimony.twitter_profile %}
-                                                <li><a href="https://twitter.com/{{ testimony.twitter_profile }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                                {% endif %}
-                                                {% if testimony.instagram_profile %}
-                                                <li><a href="https://instagram.com/{{ testimony.instagram_profile }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                                {% endif %}
-                                            </ul>
-                                        </div>
-                                        {% endif %}
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
                                 </div>
-                                {% endfor %}
                             </div>
                         </div>
                     </section>
-                    <!-- End: Our Partners Section -->
+                    <!-- End: Testimonials Section -->
                 </div>
             </div>
         </main>
