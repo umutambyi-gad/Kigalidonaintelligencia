@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block title %}{{ blog.title }} By {{ blog.author.get_full_name }}{% endblock %}
+
 {% block blog-active %}active{% endblock %}
+
 {% block content %}
 
 <!-- Start: Page Banner -->

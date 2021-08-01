@@ -3,6 +3,14 @@
 
 {% block title %}BOOKS{% endblock %}
 
+{% block metas %}
+
+<meta name="author" content="Umutambyi Gad" />
+<meta name="keywords" content="HABIYAREMYE Dona Honey, Kinyarwanda Books, {% for book in books %}{{ book.name }}{% if not forloop.last %},{% endif %}{% endfor %}" />
+<meta name="description" content="Books of Rwandan author professional HABIYAREMYE Dona Honey on kigalidonaintelligencia website" />
+
+{% endblock %}
+
 {% block content %}
 
 <!-- Start: Page Banner -->

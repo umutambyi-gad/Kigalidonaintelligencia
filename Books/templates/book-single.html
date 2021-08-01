@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block title %}{{ book.name }} by {{ book.author }}{% endblock %}
+
 {% block book-active %}active{% endblock %}
+
 {% block content %}
 
 <!-- Start: Page Banner -->
