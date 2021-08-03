@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-from typing import DefaultDict, cast
 from decouple import config, Csv
 import dj_database_url
 import django_heroku
@@ -94,10 +93,10 @@ WSGI_APPLICATION = 'Intelligencia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if config('DEV',Default=False , cast=bool):
+if config('DEV', default=False , cast=bool):
     DATABASES = {
         'default': {
-            'ENGINE': config('DB_ENGINE'),
+            'ENGINE': 'django.db.backends.mysql',
             'NAME': config('DB_NAME'),
             'USER': config('DB_USER'),
             'PASSWORD': config('DB_PASSWORD'),
@@ -218,5 +217,7 @@ ADMIN_REORDER = (
     },
 )
 
-DATABASES['default'] = dj_database_url.config()
+if not config('DEV', default=False , cast=bool):
+    DATABASES['default'] = dj_database_url.config()
+
 django_heroku.settings(locals())
