@@ -69,17 +69,39 @@ def blogSingle(request, blog_id, blog_title_slug):
         comment = request.POST['comment']
 
         if root_comment_id == 0:
-            RootComments.objects.create(
+            new_root_comment = RootComments.objects.create(
                 commentor=commentor,
                 comment=comment,
                 blog_id=blog_id
             )
+
+            return JsonResponse(
+                {
+                    'is_root': True,
+                    'comment_id': new_root_comment.pk,
+                    'time_t': new_root_comment.added_date.strftime("%Y-%m-%d"),
+                    'time_b': new_root_comment.added_date.strftime("%b %d, %Y"),
+                    'commentor': new_root_comment.commentor,
+                    'comment': new_root_comment.comment
+                },status=200
+            )
+
         else:
-            ReplyComments.objects.create(
+            new_reply_comment = ReplyComments.objects.create(
                 reply_commentor=commentor,
                 reply_comment=comment,
                 root_comment_id=root_comment_id,
                 blog_id=blog_id
+            )
+            return JsonResponse(
+                {
+                    'is_root': False,
+                    'root_comment_id': new_reply_comment.root_comment_id,
+                    'time_t': new_reply_comment.added_date.strftime("%Y-%m-%d"),
+                    'time_b': new_reply_comment.added_date.strftime("%b %d, %Y"),
+                    'commentor': new_reply_comment.reply_commentor,
+                    'comment': new_reply_comment.reply_comment
+                },status=200
             )
 
     context = {**context, **footerContacts(request)}
