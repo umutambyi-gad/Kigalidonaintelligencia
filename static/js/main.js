@@ -447,7 +447,6 @@ $(function () {
 
     
     $('.reply').on('click', 'a.comment-reply-link', function() {
-        console.log(this);
         let id = $(this).attr('class').split(' ')[1];
         let commentor = $(this).parents('.comment-body').find('.url').text().trim();
         sessionStorage.setItem('root_comment_id', id);
