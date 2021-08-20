@@ -446,8 +446,9 @@ $(function () {
     $(window).on('load', () => sessionStorage.clear());
 
     
-    $('.comment-reply-link').on('click', function() {
-        let id = $(this).attr('id').split(' ')[0];
+    $('.reply').on('click', 'a.comment-reply-link', function() {
+        console.log(this);
+        let id = $(this).attr('class').split(' ')[1];
         let commentor = $(this).parents('.comment-body').find('.url').text().trim();
         sessionStorage.setItem('root_comment_id', id);
 
@@ -460,7 +461,75 @@ $(function () {
     $('#comment').on('input', function(){
         sessionStorage.setItem('comment', $(this).val());
     });
-       
+
+    function rootcomment_skeleton(comment_id, time_t, time_b, commentor, comment) {
+        let skeleton = `
+        <div class="comment-body" id="${comment_id}">
+            <div class="comment-author vcard">
+                <img class="avatar avatar-32 photo avatar-default" src="/static/images/comments.jpg" alt="Comment Author" loading="lazy">
+                <b class="fn">
+                    <a class="url" rel="external nofollow" href="#">${commentor}</a>
+                </b>					
+            </div>
+            <footer class="comment-meta">
+                <div class="left-arrow"></div>
+                <div class="reply">
+                    <a href="#reply-title" class="comment-reply-link ${comment_id}">
+                        <i class="fa fa-reply"></i> Reply
+                    </a>
+                </div>
+                <div class="comment-metadata">
+                    <a href="#">
+                        <time datetime="${time_t}">
+                            <b>${time_b}</b>
+                        </time>
+                    </a>
+                </div>
+                <div class="comment-content">
+                    <p>${comment}</p>
+                </div>
+            </footer>
+        </div>`;
+
+        return skeleton;
+    }
+    
+    function replycomment_skeleton(root_comment_id, time_t, time_b, commentor, comment) {
+        let skeleton = `
+        <ol class="children">
+            <li class="comment odd alt depth-2">
+                <div class="comment-body">
+                    <div class="comment-author vcard">
+                        <img class="avatar photo" src="/static/images/comments.jpg" alt="Comment Avatar" loading="lazy">
+                        <b class="fn">
+                            <a class="url" rel="external nofollow" href="#">${commentor}</a>
+                        </b>
+                    </div>
+                    <footer class="comment-meta">
+                        <div class="left-arrow"></div>
+                        <div class="reply">
+                            <a href="#reply-title" class="comment-reply-link ${root_comment_id}">
+                                <i class="fa fa-reply"></i> Reply
+                            </a>
+                        </div>
+                        <div class="comment-metadata">
+                            <a href="#">
+                                <time datetime="${time_t}">
+                                    <b>${time_b}</b>
+                                </time>
+                            </a>
+                        </div>
+                        <div class="comment-content">
+                            <p>${comment}</p>
+                        </div>
+                    </footer>
+                </div>
+            </li>
+        </ol>`;
+
+        return skeleton;
+    }
+
     $('#submit').on('click', function(event) {
         let id = sessionStorage.getItem('root_comment_id')? sessionStorage.getItem('root_comment_id'): 0;
 
@@ -471,11 +540,30 @@ $(function () {
         };
 
         let success = response => {
+            if (response.is_root) {
+                $('.comment-list > .comment').append(rootcomment_skeleton(
+                    response.comment_id,
+                    response.time_t,
+                    response.time_b,
+                    response.commentor,
+                    response.comment
+                ));
+            } else {
+                $('.comment-list > .comment').find(`#${response.root_comment_id}`).after(replycomment_skeleton(
+                    response.root_comment_id,
+                    response.time_t,
+                    response.time_b,
+                    response.commentor,
+                    response.comment
+                ));
+            }
+            $('#author').val('');
+            $('#comment').val('');
             sessionStorage.clear();
-            location.reload();
         };
 
         ajaxRequest('POST', data, success);
+        event.preventDefault();
     });
 
 });
