@@ -16,7 +16,7 @@ class HomeBackground(models.Model):
 
 class HomeWelcoming(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='home/images')
+    image = models.ImageField(upload_to='home/images', null=True, blank=True)
     description = models.TextField()
     added_date = models.DateTimeField(auto_now_add=True)
 
@@ -35,7 +35,7 @@ class HomeWelcoming(models.Model):
 class TestimonyAdding(models.Model):
     author_name = models.CharField(max_length=255)
     author_email = models.CharField(max_length=255)
-    author_image = models.ImageField(upload_to='home/images', null=True, blank=True)
+    author_image = models.ImageField(upload_to='home/images', default='home/images/default.png', null=True, blank=True)
     testimony = models.TextField()
     linkedin_profile = models.CharField(max_length=255, null=True, blank=True)
     facebook_profile = models.CharField(max_length=255, null=True, blank=True)
