@@ -15,7 +15,7 @@ def footerContacts(request):
     }
 
 def contact(request):
-    if request.method == 'POST':
+    if request.is_ajax():
         sender_firstname = request.POST['firstname']
         sender_lastname = request.POST['lastname']
         sender_names = f'{sender_firstname} {sender_lastname}'
@@ -28,7 +28,6 @@ def contact(request):
 			sender_email, # from_email
 			config('RECIEVER_EMAILS', cast=Csv())
         )
-        return redirect('/contact')
 
     contacts = Contact.objects.all()
     context = {
