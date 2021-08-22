@@ -362,7 +362,7 @@ $(function () {
     });
 
     /* function for ajax request */
-    function ajaxRequest(method, data, success) {
+    function ajaxRequest(method, data, success, error) {
         if (method.toUpperCase() == 'POST') {
             data['csrfmiddlewaretoken'] = $('input[name=csrfmiddlewaretoken]').val();
         }
@@ -370,11 +370,10 @@ $(function () {
             url: location.path,
             type: method,
             data: data,
-            success: success
+            success: success,
+            error: error
         });
     }
-    
-    /*
 
     //Contact Form Submit/Validation
     //--------------------------------------------------------
@@ -384,7 +383,7 @@ $(function () {
     var firstNameFieldObj = $("#first-name");
     var lastNameFieldObj = $("#last-name");
     var emailFieldObj = $("#email");
-    var phoneFieldObj = $("#phone");
+    var subjectObj = $("#subject");
     var messageFieldObj = $("#message");
     var successObj = $('#success');
     var errorObj = $('#error');
@@ -403,31 +402,29 @@ $(function () {
         var data = {
             firstname: firstNameFieldObj.val(),
             lastname: lastNameFieldObj.val(),
+            subject: subjectObj.val(),
             email: emailFieldObj.val(),
-            phone: phoneFieldObj.val(),
             message: messageFieldObj.val()
         };
-        if (data.firstname === '' || data.lastname === '' || data.email === '' || data.phone === '' || data.message === '') {
-            alert("All fields are mandatory");
-        } else {
+
+        if (data.firstname !== '' || data.lastname !== '' || data.email !== '' || data.message !== '') {
             if (validateEmail(emailaddress)) {
                 if (emailerrorvalidation === 1) {
                     alert('Nice! your Email is valid, you can proceed now.');
                 }
                 emailerrorvalidation = 0;
-                $.ajax({
-                    type: "POST",
-                    url: "contact.php",
-                    data: data,
-                    cache: false,
-                    success: function () {
-                        successObj.fadeIn(1000);
-                        formObj[0].reset();
-                    },
-                    error: function () {
-                        errorObj.fadeIn(1000);
-                    }
-                });
+
+                let success = response => {
+                    successObj.fadeIn(1000);
+                    formObj[0].reset();
+                };
+
+                let error = response => {
+                    errorObj.fadeIn(1000);
+                };
+                
+                ajaxRequest('POST', data, success, error);
+
             } else {
                 emailerrorvalidation = 1;
                 alert('Oops! Invalid Email Address');
@@ -436,15 +433,12 @@ $(function () {
         return false;
     });
     
-    */
-
     let hightlight = $('.word-to-highlight').text();
     $(".booksmedia-fullwidth ul li").mark(hightlight);
     $(".post-detail .entry-title").mark(hightlight);
     $(".post-detail .entry-content").mark(hightlight);
 
     $(window).on('load', () => sessionStorage.clear());
-
     
     $('.reply').on('click', 'a.comment-reply-link', function() {
         let id = $(this).attr('class').split(' ')[1];
@@ -561,7 +555,11 @@ $(function () {
             sessionStorage.clear();
         };
 
-        ajaxRequest('POST', data, success);
+        let error = response => {
+            console.log(response);
+        }
+
+        ajaxRequest('POST', data, success, error);
         event.preventDefault();
     });
 
