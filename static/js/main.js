@@ -372,8 +372,9 @@ $(function () {
             data: data,
             success: success,
             error: error,
-            enctype: 'multipart/form-data',
             cache: false,
+            processData: false,
+            contentType: false
         });
     }
 
@@ -446,74 +447,35 @@ $(function () {
             enctype: 'multipart/form-data',
             cache: false,
             contentType: false,
-            processData: false,
+            processData: false
         });
 
     });
 
     //Contact Form Submit/Validation
     //--------------------------------------------------------
-    let emailerrorvalidation = 0;
-    let formObj = $('#contact');
-    let contactFormObj = $('#submit-contact-form');
-    let firstNameFieldObj = $("#first-name");
-    let lastNameFieldObj = $("#last-name");
-    let emailFieldObj = $("#email");
-    let subjectObj = $("#subject");
-    let messageFieldObj = $("#message");
-    let successObj = $('#success');
-    let errorObj = $('#error');
 
-    contactFormObj.on('click', function () {
-        let emailaddress = emailFieldObj.val();
-        function validateEmail(emailaddress) {
-            var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-            if (filter.test(emailaddress)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+    $('#contact').submit(function(event) {
+        event.preventDefault();
+        let data = new FormData();
+        $(this).serializeArray().forEach( item => data.append(item.name, item.value));
 
-        let data = {
-            firstname: firstNameFieldObj.val(),
-            lastname: lastNameFieldObj.val(),
-            subject: subjectObj.val(),
-            email: emailFieldObj.val(),
-            message: messageFieldObj.val()
+        let success = response => {
+            $('#success').fadeIn(1000);
+            $('#contact')[0].reset();
         };
-
-        if (data.firstname !== '' || data.lastname !== '' || data.email !== '' || data.message !== '') {
-            if (validateEmail(emailaddress)) {
-                if (emailerrorvalidation === 1) {
-                    alert('Nice! your Email is valid, you can proceed now.');
-                }
-                emailerrorvalidation = 0;
-
-                let success = response => {
-                    successObj.fadeIn(1000);
-                    formObj[0].reset();
-                };
-
-                let error = response => {
-                    errorObj.fadeIn(1000);
-                };
-                
-                ajaxRequest('POST', data, success, error);
-
-            } else {
-                emailerrorvalidation = 1;
-                alert('Oops! Invalid Email Address');
-            }
-        }
-        return false;
+        let error = response => $('#error').fadeIn(1000);
+        
+        ajaxRequest('POST', data, success, error);
     });
+
     
     let hightlight = $('.word-to-highlight').text();
     $(".booksmedia-fullwidth ul li").mark(hightlight);
     $(".post-detail .entry-title").mark(hightlight);
     $(".post-detail .entry-content").mark(hightlight);
 
+    
     $(window).on('load', () => sessionStorage.clear());
     
     $('.reply').on('click', 'a.comment-reply-link', function() {
@@ -605,7 +567,8 @@ $(function () {
         let data = {
             root_comment_id: Number(id),
             commentor: sessionStorage.getItem('commentor'),
-            comment: sessionStorage.getItem('comment')
+            comment: sessionStorage.getItem('comment'),
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
         };
 
         let success = response => {
@@ -631,11 +594,17 @@ $(function () {
             sessionStorage.clear();
         };
 
-        let error = response => {
-            console.log(response);
-        }
+        let error = response => console.log(response);
 
-        ajaxRequest('POST', data, success, error);
+        $.ajax({
+            url: location.path,
+            type: 'POST',
+            data: data,
+            success: success,
+            error: error,
+            cache: false,
+        });
+        
         event.preventDefault();
     });
 
