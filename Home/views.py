@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
+from django.http import JsonResponse
 from .models import (
     HomeBackground,
     HomeWelcoming,
@@ -19,7 +20,8 @@ from Contact.views import footerContacts
 # Create your views here.
 def home(request):
     # Addition of testimonies
-    if request.method == 'POST':
+    
+    if request.is_ajax():
         author_names = request.POST['names']
         author_email = request.POST['email']
         author_image = request.FILES.get('image', None)
@@ -30,7 +32,7 @@ def home(request):
         instagram_profile = request.POST.get('instagram', None)
         
         if author_image not in ('', None):
-            TestimonyAdding.objects.create(
+            new_testimony = TestimonyAdding.objects.create(
                 author_name=author_names,
                 author_email=author_email,
                 author_image=author_image,
@@ -40,8 +42,20 @@ def home(request):
                 twitter_profile=twitter_profile,
                 instagram_profile=instagram_profile
             )
+
+            return JsonResponse(
+                {
+                    'author': new_testimony.author_name,
+                    'avatar': new_testimony.author_image.url,
+                    'testimony': new_testimony.testimony,
+                    'lnk_username': new_testimony.linkedin_profile,
+                    'fb_username': new_testimony.facebook_profile,
+                    'twt_username': new_testimony.twitter_profile,
+                    'insta_username': new_testimony.instagram_profile
+                }, status=200
+            )
         else:
-            TestimonyAdding.objects.create(
+            new_testimony = TestimonyAdding.objects.create(
                 author_name=author_names,
                 author_email=author_email,
                 testimony=author_testimony,
@@ -51,7 +65,17 @@ def home(request):
                 instagram_profile=instagram_profile
             )
         
-        redirect('/')
+            return JsonResponse(
+                {
+                    'author': new_testimony.author_name,
+                    'avatar': new_testimony.author_image.url,
+                    'testimony': new_testimony.testimony,
+                    'lnk_username': new_testimony.linkedin_profile,
+                    'fb_username': new_testimony.facebook_profile,
+                    'twt_username': new_testimony.twitter_profile,
+                    'insta_username': new_testimony.instagram_profile
+                }, status=200
+            )
     
     home_background = HomeBackground.objects.all()
     home_welcoming = HomeWelcoming.objects.first()
