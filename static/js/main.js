@@ -374,8 +374,6 @@ $(function () {
             error: error,
             enctype: 'multipart/form-data',
             cache: false,
-            contentType: false,
-            processData: false,
         });
     }
 
@@ -439,7 +437,17 @@ $(function () {
             alert('Error accured')
         }
 
-        ajaxRequest('POST', data, success, error);
+        $.ajax({
+            url: location.path,
+            type: 'POST',
+            data: data,
+            success: success,
+            error: error,
+            enctype: 'multipart/form-data',
+            cache: false,
+            contentType: false,
+            processData: false,
+        });
 
     });
 
