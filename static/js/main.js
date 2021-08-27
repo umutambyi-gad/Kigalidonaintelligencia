@@ -371,25 +371,93 @@ $(function () {
             type: method,
             data: data,
             success: success,
-            error: error
+            error: error,
+            enctype: 'multipart/form-data',
+            cache: false,
+            contentType: false,
+            processData: false,
         });
     }
 
+    function testimony_skeleton(author, avatar, testimony, lnk_username, fb_username, twt_username, insta_username) {
+        let skeleton = `
+            <div class="owl-item" style="width: 720px; margin-right: 30px;">
+                <div class="single-testimonial-box">
+                    <div class="top-portion">
+                        <img src="${avatar}" alt="Testimonial Image" style="height:252px !important; width:170px !important;" loading="lazy">
+                        <div class="user-comment">
+                            <div class="arrow-left"></div>
+                            <blockquote cite="#">
+                                ${testimony}
+                            </blockquote>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="bottom-portion">
+                        <a href="#" class="author">
+                            ${author}
+                        </a>
+                        <div class="social-share-links">
+                            <ul>
+                                <li><a href="https://linkedin.com/in/${lnk_username}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="https://facebook.com/${fb_username}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/${twt_username}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://instagram.com/${insta_username}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>`;
+        return skeleton;
+    }
+
+    $('#testimonial-form').on('submit', function(event) {
+
+        event.preventDefault();
+        let data = new FormData();
+
+        $(this).serializeArray().forEach( item => data.append(item.name, item.value));
+        data.append('image', $('[name=image]')[0].files[0]);
+        
+        let success = response => {
+            $('.owl-stage').append(
+                testimony_skeleton(
+                    response.author,
+                    response.avatar,
+                    response.testimony,
+                    response.lnk_username,
+                    response.fb_username,
+                    response.twt_username,
+                    response.insta_username
+                )
+            );
+        }
+
+        let error = response => {
+            alert('Error accured')
+        }
+
+        ajaxRequest('POST', data, success, error);
+
+    });
+
     //Contact Form Submit/Validation
     //--------------------------------------------------------
-    var emailerrorvalidation = 0;
-    var formObj = $('#contact');
-    var contactFormObj = $('#submit-contact-form');
-    var firstNameFieldObj = $("#first-name");
-    var lastNameFieldObj = $("#last-name");
-    var emailFieldObj = $("#email");
-    var subjectObj = $("#subject");
-    var messageFieldObj = $("#message");
-    var successObj = $('#success');
-    var errorObj = $('#error');
+    let emailerrorvalidation = 0;
+    let formObj = $('#contact');
+    let contactFormObj = $('#submit-contact-form');
+    let firstNameFieldObj = $("#first-name");
+    let lastNameFieldObj = $("#last-name");
+    let emailFieldObj = $("#email");
+    let subjectObj = $("#subject");
+    let messageFieldObj = $("#message");
+    let successObj = $('#success');
+    let errorObj = $('#error');
 
     contactFormObj.on('click', function () {
-        var emailaddress = emailFieldObj.val();
+        let emailaddress = emailFieldObj.val();
         function validateEmail(emailaddress) {
             var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
             if (filter.test(emailaddress)) {
@@ -399,7 +467,7 @@ $(function () {
             }
         }
 
-        var data = {
+        let data = {
             firstname: firstNameFieldObj.val(),
             lastname: lastNameFieldObj.val(),
             subject: subjectObj.val(),
