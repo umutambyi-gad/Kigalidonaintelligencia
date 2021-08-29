@@ -51,8 +51,7 @@ class Books(models.Model):
         result = cls.objects.filter(
             Q(name__icontains=query) |
             Q(edition__icontains=query) |
-            Q(short_summary__icontains=query) |
-            Q(long_summary__icontains=query)
+            Q(summary__icontains=query)
         )
 
         return result
@@ -62,8 +61,7 @@ class Books(models.Model):
         result = cls.objects.filter(
             Q(name__icontains=query) |
             Q(edition__icontains=query) |
-            Q(short_summary__icontains=query) |
-            Q(long_summary__icontains=query) |
+            Q(summary__icontains=query) |
             Q(related_category=Categories.objects.get(category=category))
         )
 
