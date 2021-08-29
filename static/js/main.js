@@ -281,6 +281,7 @@ $(function () {
     //Bootstrap Carousel Swipe (Testimonials Carousel)
     //--------------------------------------------------------
     var testimonialsObj = $("#testimonials");
+    
     testimonialsObj.swiperight(function () {
         $(this).carousel('prev');
     });
@@ -412,7 +413,7 @@ $(function () {
         return skeleton;
     }
 
-    $('#testimonial-form').on('submit', function(event) {
+    $('#testimonial-form').submit(function(event) {
 
         event.preventDefault();
         let data = new FormData();
@@ -432,6 +433,7 @@ $(function () {
                     response.insta_username
                 )
             );
+            $('#testimonial-form')[0].reset();
         }
 
         let error = response => {
