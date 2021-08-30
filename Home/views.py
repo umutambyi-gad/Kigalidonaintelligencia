@@ -51,7 +51,8 @@ def home(request):
                     'lnk_username': new_testimony.linkedin_profile,
                     'fb_username': new_testimony.facebook_profile,
                     'twt_username': new_testimony.twitter_profile,
-                    'insta_username': new_testimony.instagram_profile
+                    'insta_username': new_testimony.instagram_profile,
+                    'indicator_number': TestimonyAdding.objects.count() - 1
                 }, status=200
             )
         else:
@@ -73,7 +74,8 @@ def home(request):
                     'lnk_username': new_testimony.linkedin_profile,
                     'fb_username': new_testimony.facebook_profile,
                     'twt_username': new_testimony.twitter_profile,
-                    'insta_username': new_testimony.instagram_profile
+                    'insta_username': new_testimony.instagram_profile,
+                    'indicator_number': TestimonyAdding.objects.count() - 1
                 }, status=200
             )
     
