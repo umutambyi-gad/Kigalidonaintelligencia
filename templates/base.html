@@ -15,6 +15,8 @@
         
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        {% block metas %}{% endblock %}
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
@@ -101,7 +103,7 @@
                             <div id="mobile-menu">
                                 <ul>
                                     <li class="mobile-title">
-                                        <h4>Navigation</h4>
+                                        <h4>KIDI</h4>
                                         <a href="#" class="close"></a>
                                     </li>
                                     <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'Home:home' %}">Home</a></li>
