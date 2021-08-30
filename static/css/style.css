@@ -66,6 +66,7 @@ html {
 }
 body {
   margin: 0;
+  transition: 1s all;
 }
 
 a h1 {
@@ -12319,7 +12320,7 @@ a:focus {
 }
 .layout-v2 .layout-v2-counter {
   background-attachment: fixed;
-  background-image: url(images/wellcome-counter-bg.jpg);
+  background-image: url(../images/facts-counter.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -19297,4 +19298,13 @@ a:focus {
 }
 strong a:hover {
   color: #3366ff !important;
+}
+
+.item figure img {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.testimonials {
+  user-select: none;
 }
