@@ -381,35 +381,16 @@ $(function () {
 
     function testimony_skeleton(author, avatar, testimony, lnk_username, fb_username, twt_username, insta_username) {
         let skeleton = `
-            <div class="owl-item" style="width: 720px; margin-right: 30px;">
-                <div class="single-testimonial-box">
-                    <div class="top-portion">
-                        <img src="${avatar}" alt="Testimonial Image" style="height:252px !important; width:170px !important;" loading="lazy">
-                        <div class="user-comment">
-                            <div class="arrow-left"></div>
-                            <blockquote cite="#">
-                                ${testimony}
-                            </blockquote>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="bottom-portion">
-                        <a href="#" class="author">
-                            ${author}
-                        </a>
-                        <div class="social-share-links">
-                            <ul>
-                                <li><a href="https://linkedin.com/in/${lnk_username}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="https://facebook.com/${fb_username}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="https://twitter.com/${twt_username}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="https://instagram.com/${insta_username}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>`;
+        <div class="item active">
+            <figure>
+                <img src="${avatar}" alt="testimonials"/>
+                <figcaption>
+                    <div class="client-name">${author}</div>
+                    <div class="designation">testimony teller</div>
+                </figcaption>
+            </figure>
+            <p>${testimony}</p>
+        </div>`;
         return skeleton;
     }
 
@@ -422,17 +403,24 @@ $(function () {
         data.append('image', $('[name=image]')[0].files[0]);
         
         let success = response => {
-            $('.owl-stage').append(
-                testimony_skeleton(
-                    response.author,
-                    response.avatar,
-                    response.testimony,
-                    response.lnk_username,
-                    response.fb_username,
-                    response.twt_username,
-                    response.insta_username
-                )
+            $('.item.active').removeClass('active');
+
+            $(testimony_skeleton(
+                response.author,
+                response.avatar,
+                response.testimony,
+                response.lnk_username,
+                response.fb_username,
+                response.twt_username,
+                response.insta_username
+            )).insertAfter('.item:last');
+            
+            $('.carousel-indicators li').removeClass('active');
+            $('.carousel-indicators').append(
+                `<li data-target="#testimonials" data-slide-to="${response.indicator_number}" class="active"></li>`
             );
+            
+
             $('#testimonial-form')[0].reset();
         }
 
