@@ -22,6 +22,7 @@ def bookSingle(request, book_id, book_title_slug):
     book = Books.objects.get(pk=book_id)
     recent_books = Books.recent_books()
     popular_books = Books.popular_books()
+    categories = Categories.objects.all()
 
     if request.method == 'GET':
         views = book.views + 1
@@ -31,7 +32,8 @@ def bookSingle(request, book_id, book_title_slug):
     context = {
         'popular_books': popular_books,
         'recent_books': recent_books,
-        'book': book
+        'book': book,
+        'categories': categories
     }
     context = {**context, **footerContacts(request)}
     return render(request, 'book-single.html', context=context)
