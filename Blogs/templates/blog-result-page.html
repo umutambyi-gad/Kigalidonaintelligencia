@@ -46,15 +46,14 @@
                                     <div class="col-md-3 col-sm-6">
                                         <div class="form-group">
                                             <select name="type" class="form-control">
-                                                <option>Blogs</option>
-                                                <option>Books</option>
+                                                <option selected>Blogs</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6">
                                         <div class="form-group">
                                             <select name="cat" id="category" class="form-control">
-                                                <option value="all-category">All Categories</option>
+                                                <option value="all-category" selected>All Categories</option>
                                                 {% for category in categories %}
                                                 <option value="{{ category.category }}">{{ category.category }}</option>
                                                 {% endfor %}
@@ -108,7 +107,9 @@
                                             </div>
                                         </header>
                                         <div class="entry-content">
-                                            <p>{{ blog.description|truncatechars:260 }}</p>
+                                            <a href="{{ blog.get_absolute_url }}">
+                                                <p>{{ blog.description|truncatechars:260 }}</p>
+                                            </a>
                                         </div>
                                         <footer class="entry-footer">
                                             <a class="btn btn-default" href="{{ blog.get_absolute_url }}">Read More</a>
@@ -118,7 +119,6 @@
                             </article>
                         {% endfor %}
                         </div>
-                        <a href="#" id="loadmore">Load More</a>
                     </div>
                 </div>
             </div>
