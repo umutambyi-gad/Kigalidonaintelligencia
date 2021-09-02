@@ -38,27 +38,26 @@
     <div class="container">
         <div class="filter-box">
             <h3>What are you looking for at the library?</h3>
-            <form action="#" method="get">
+            <form action="{% url 'Books:search-book' %}" method="GET">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-group">
                         <label class="sr-only" for="keywords">Search by Keyword</label>
-                        <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
+                        <input class="form-control" placeholder="Search by Keyword" id="keywords" name="q" type="text">
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <select name="type" class="form-control">
-                            <option>Books</option>
-                            <option>Blogs</option>
+                            <option selected>Books</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
-                        <select name="category" id="category" class="form-control">
-                            <option>All Categories</option>
-                            {% for blog_category in blog_categories %}
-                            <option>{{ blog_category.category }}</option>
+                        <select name="cat" id="category" class="form-control">
+                            <option value="all-category" selected>All Categories</option>
+                            {% for book_category in book_categories %}
+                            <option value="{{ book_category.category }}">{{ book_category.category }}</option>
                             {% endfor %}
                         </select>
                     </div>
