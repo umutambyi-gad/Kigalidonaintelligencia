@@ -33,26 +33,27 @@
                         <div class="container">
                             <div class="filter-box">
                                 <h3>What are you looking for at the library?</h3>
-                                <form action="#" method="get">
+                                <form action="{% url 'Blogs:search-blog' %}" method="GET">
                                     <div class="col-md-4 col-sm-6">
                                         <div class="form-group">
                                             <label class="sr-only" for="keywords">Search by Keyword</label>
-                                            <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
+                                            <input class="form-control" placeholder="Search by Keyword" id="keywords" name="q" type="text">
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6">
                                         <div class="form-group">
                                             <select name="type" class="form-control">
-                                                <option>Blogs</option>
-                                                <option>Books</option>
+                                                <option selected>Blogs</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6">
                                         <div class="form-group">
-                                            <select name="category" id="category" class="form-control">
-                                                <option>All Categories</option>
-                                                <option>Category 1</option>
+                                            <select name="cat" id="category" class="form-control">
+                                                <option value="all-category" selected>All Categories</option>
+                                                {% for category in categories %}
+                                                <option value="{{ category.category }}">{{ category.category }}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                     </div>
