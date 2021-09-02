@@ -43,15 +43,14 @@
                                     <div class="col-md-3 col-sm-6">
                                         <div class="form-group">
                                             <select name="type" class="form-control">
-                                                <option>Books</option>
-                                                <option>Blogs</option>
+                                                <option selected>Books</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6">
                                         <div class="form-group">
                                             <select name="cat" id="category" class="form-control">
-                                                <option value="all-category">All Categories</option>
+                                                <option value="all-category" selected>All Categories</option>
                                                 {% for category in categories %}
                                                 <option value="{{ category }}">{{ category }}</option>
                                                 {% endfor %}

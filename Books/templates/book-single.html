@@ -51,9 +51,9 @@
                                     <div class="col-md-3 col-sm-6">
                                         <div class="form-group">
                                             <select name="cat" id="category" class="form-control">
-                                            <option alue="all-category" selected>All Categories</option>
+                                            <option value="all-category" selected>All Categories</option>
                                             {% for category in categories %}
-                                                <option alue="{{ category }}" selected>{{ category }}</option>
+                                                <option value="{{ category }}">{{ category }}</option>
 
                                             {% endfor %}
                                             </select>
