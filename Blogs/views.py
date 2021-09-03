@@ -53,6 +53,7 @@ def searchBlog(request):
 
 def blogSingle(request, blog_id, blog_title_slug):
     current_blog = Blogs.objects.get(pk=blog_id)
+    categories = Categories.objects.all()
 
     if request.method == 'GET':
         views = current_blog.views + 1
@@ -60,7 +61,8 @@ def blogSingle(request, blog_id, blog_title_slug):
         current_blog.save()
 
     context = {
-        'blog': current_blog
+        'blog': current_blog,
+        'categories': categories
     }
 
     if request.is_ajax():

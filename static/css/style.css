@@ -7091,7 +7091,7 @@ h1 {
   font-size: 35px;
 }
 mark {
-  background: #ff7236;
+  background: #3366ff;
   color: #fff;
 }
 small {
@@ -7728,7 +7728,7 @@ acronym {
 }
 mark,
 ins {
-  background: #ff7236;
+  background: #3366ff;
   text-decoration: none;
 }
 big {
