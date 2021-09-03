@@ -69,8 +69,3 @@ def searchBook(request):
 
     return render(request, 'book-result-page.html', context=context)
 
-
-def newBook(request):
-    context = {}
-    context = {**context, **footerContacts(request)}
-    return render(request, 'new-book.html', context=context)

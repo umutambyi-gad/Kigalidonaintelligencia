@@ -7,5 +7,4 @@ urlpatterns = [
     path('', views.books, name='books'),
     path('<int:book_id>/<slug:book_title_slug>', views.bookSingle, name='book-single'),
     path('search-books', views.searchBook, name='search-book'),
-    path('new-book', views.newBook, name='new-book')
 ]
