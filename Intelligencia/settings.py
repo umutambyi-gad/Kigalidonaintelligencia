@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'Blogs.apps.BlogsConfig',
     'Contact.apps.ContactConfig',
     'admin_reorder',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -142,6 +143,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Email configurations
+
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
 EMAIL_PORT = config('EMAIL_PORT', cast=int, default=1025)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
@@ -149,6 +152,19 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 EMAIL_USE_SSL = config('EMAIL_USE_TLS', default=False, cast=bool)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='')
+
+
+#AWS configurations
+
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_FILE_OVERWRITE = config('AWS_S3_FILE_OVERWRITE', default=False)
+AWS_DEFAULT_ACL = config('AWS_DEFAULT_ACL', default=None)
+
+if not config('DEV', default=False , cast=bool):
+    DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE')
+    STATICFILES_STORAGE = config('STATICFILES_STORAGE')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
