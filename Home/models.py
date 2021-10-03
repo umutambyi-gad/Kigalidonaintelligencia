@@ -35,7 +35,7 @@ class HomeWelcoming(models.Model):
 class TestimonyAdding(models.Model):
     author_name = models.CharField(max_length=255)
     author_email = models.CharField(max_length=255)
-    author_image = models.ImageField(upload_to='home/images', default='home/images/default.png', null=True, blank=True)
+    author_image = models.ImageField(upload_to='home/images', default='media/home/images/default.png', null=True, blank=True)
     testimony = models.TextField()
     linkedin_profile = models.CharField(max_length=255, null=True, blank=True)
     facebook_profile = models.CharField(max_length=255, null=True, blank=True)
