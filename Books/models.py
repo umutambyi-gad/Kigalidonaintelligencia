@@ -20,9 +20,9 @@ class Categories(models.Model):
 class Books(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    edition = models.CharField(max_length=255)
-    ISBN = models.CharField(max_length=255)
-    publisher = models.CharField(max_length=255)
+    edition = models.CharField(max_length=255, default='N/A')
+    ISBN = models.CharField(max_length=255, default='N/A')
+    publisher = models.CharField(max_length=255, default='N/A')
     thumbnail = models.ImageField(upload_to='books/images', null=True, blank=True)
     summary = models.TextField()
     related_category = models.OneToOneField(Categories, on_delete=models.CASCADE)
