@@ -164,7 +164,6 @@ AWS_DEFAULT_ACL = config('AWS_DEFAULT_ACL', default=None)
 
 if not config('DEV', default=False , cast=bool):
     DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE')
-    STATICFILES_STORAGE = config('STATICFILES_STORAGE')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
