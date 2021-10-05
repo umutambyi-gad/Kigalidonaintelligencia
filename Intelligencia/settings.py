@@ -164,7 +164,7 @@ AWS_QUERYSTRING_AUTH = False
 AWS_DEFAULT_ACL = None
 
 if not config('DEV', default=False , cast=bool):
-    DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE')
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
