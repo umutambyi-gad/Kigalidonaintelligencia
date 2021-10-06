@@ -25,6 +25,7 @@ class Books(models.Model):
     publisher = models.CharField(max_length=255, default='N/A')
     thumbnail = models.ImageField(upload_to='books/images', null=True, blank=True)
     summary = models.TextField()
+    link = models.CharField(max_length=1024, default='N/A')
     related_category = models.OneToOneField(Categories, on_delete=models.CASCADE)
     views = models.IntegerField(default=0)
     book_link = models.CharField(max_length=500, null=True, blank=True)
