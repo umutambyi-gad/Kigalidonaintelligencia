@@ -20,7 +20,7 @@ admin.site.register(Categories, CategoriesAdmin)
 class BooksAdmin(admin.ModelAdmin):
     fieldsets = (
 		('Book informations', {
-			'fields': ('name', 'edition', 'ISBN', 'publisher', 'views')
+			'fields': ('name', 'edition', 'ISBN', 'publisher', 'views', 'link')
 		}),
         ('Book thumbnail (Optional)', {
 			'fields': ('thumbnail',)
